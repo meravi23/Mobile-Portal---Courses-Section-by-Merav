@@ -1,10 +1,59 @@
 .container {
     background-color: #1B166E;
     height: 640px;
+    
 }
 
 .logo {
     display: block;
     margin: auto;
     padding-top: 40px; 
+    padding-bottom: 50px;
+}
+
+.form-control {
+    background-color: #1B166E;
+    height: 50px; 
+    
+}
+
+.rounded-pill {
+    width: 311.2px;
+    margin: auto;
+}
+
+.relative {
+    position: relative;
+}
+
+.abs {
+    position: absolute; 
+    color: #ffffff;
+    text-align: center;
+    width: 100%; 
+    pointer-events: none; 
+    top: 9.5%;
+    font-size: 25px;
+}
+
+.connect {
+    position: absolute; 
+    color: #1B166E;
+    text-align: center;
+    width: 100%; 
+    pointer-events: none; 
+    top: 205px;
+    font-size: 25px;
+    }
+
+.form-control2 {
+    background-color: #ffffff;
+    height: 50px; 
+         
+}
+
+.btn {
+    margin-right: 35px;
+    position: absolute;
+    top: 200px; 
 }
