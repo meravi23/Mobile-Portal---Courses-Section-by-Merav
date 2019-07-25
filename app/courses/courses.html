@@ -10,9 +10,9 @@
 
                 <div class="courses-center courses-bold my-4 col-4">
                     <div class="page-nav">
-                        <span class="fas fa-chevron-circle-right" ng-click="pageDown()"></span>
+                        <span ng-click="pageDown()"><img src="img\arrow_right.png"></span>
                         <span></span> {{pageIndex+1}} <span></span>
-                        <span class="fas fa-chevron-circle-left" ng-click="pageUp()"></span>
+                        <span ng-click="pageUp()"><img src="img\arrow_left.png"></span>
                     </div>
                 </div>
             </div>
@@ -23,17 +23,17 @@
                 <table class="table-users">
                     <thead>
                         <tr>
-                            <th class="th-users">שם קורס מקוצר</th>
-                            <th class="th-users">פרויקט</th>
-                            <th class="th-users">מדריך</th>
+                            <th class="th-users th-courses">שם קורס מקוצר</th>
+                            <th class="th-users th-courses">פרויקט</th>
+                            <th class="th-users th-courses">מדריך</th>
                         </tr>
                     </thead>
                     <tbody ng-model="courses">
                         <tr class="tr-users" ng-click="goToCoursePage(course)"
                             ng-repeat="course in courses | orderBy:sortType:sortReverse">
-                            <td class="td-users courses-line-height" title="{{course.subname}}">{{course.subname}}</td>
-                            <td class="td-users courses-line-height" title="{{course.project}}">{{course.project}}</td>
-                            <td class="td-users courses-line-height" title="{{course.teachers}}">{{course.teachers}}
+                            <td class="td-courses" title="{{course.subname}}">{{course.subname}}</td>
+                            <td class="td-courses" title="{{course.project}}">{{course.project}}</td>
+                            <td class="td-courses" title="{{course.teachers}}">{{course.teachers}}
                             </td>
                         </tr>
                     </tbody>

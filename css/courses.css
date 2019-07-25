@@ -75,12 +75,14 @@ section .section-title {
 	font-weight: bold;
 }
 
-.courses-line-height {
-	height: 90px;
-}
-
 .courses-input {
 	padding-right: 10px;
+}
+
+.td-courses {
+	text-align: center;
+	height: 90px;
+	font-family:"Assistant-Regular";
 }
 
 /* TODO: change placeholder font  */
