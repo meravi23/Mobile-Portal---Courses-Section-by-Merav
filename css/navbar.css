@@ -168,15 +168,29 @@
 	-o-transform: Scale(1, 1);
 }
 
-.close {
+.closeBar {
 	position: absolute;
+	top: -5px;
 	left:10px;
 	z-index: 1;
 	color: white;
+	font-size: 40px;
+	font-weight: 100;
+	
 }
 
 .fa-bars {
  position: relative;
  right: 15px;
  top:10px;
+}
+
+.outSideBar {
+/* border: solid black; */
+height: 100%;
+width: 18%;
+position: fixed;
+top: 0;
+left: 0;
+
 }
