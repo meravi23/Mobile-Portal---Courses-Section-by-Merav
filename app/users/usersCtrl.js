@@ -26,7 +26,7 @@
             var sorting = $scope.sortingField = "userid"
             var desc = $scope.reverseOrder = "false";
             var userstatus = $scope.userStatus = 1;
-            var page = $scope.pageIndex = 0;
+			var page = $scope.pageIndex = 0;			
             
             var userClassificationFetchMethod = fetchMethods[$scope.userType] = "SearchStaffUnderMe";
     
