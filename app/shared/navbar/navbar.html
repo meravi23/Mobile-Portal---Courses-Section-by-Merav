@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,4 +23,67 @@
             </li>    
         </ul>
     </div>
-</nav>
+</nav> -->
+<div>
+
+    <div>
+        <i class="fas fa-bars" ng-click="openSide()"></i>
+    </div>
+
+    <div ng-class="{'sidebar-open' : isOpen}">
+
+        <div class="sidebar-background"></div>
+        <div class="sidebar-wrap"><i class="closeBar" ng-click="closeSide()">&times;</i>
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <img class="appleseeds-logo" src="img/bg_logo.png"></img>
+                </div>
+                <div class="profile-preview">
+                    <div class="name-wrap">
+                        <span class="user-name">
+                            my name
+                        </span>
+                    </div>
+                </div>
+                <div class="sidebar-options">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link menu-information" href="#!/courses"
+                                ng-click="goToCoursesPage()">קורסים</a>
+                        </li>
+                        <div class="users-nav" ng-click="usermanuclick()">
+                            <li class="nav-item">
+                                <a class="nav-link menu-information">משתמשים</a>
+                            </li>
+                            <img class="arrowbardown" src="img/arrow_down.png" ng-hide="usermanu" alt="arrow_down"> 
+                            <img class="arrowbarup" src="img/arrow_up.png" ng-show="usermanu"  alt="arrow_up"> 
+                        </div>
+
+                        <div ng-show="usermanu">
+                            <li class="nav-item">
+                                <a class="nav-link menu-information" href="#!/users">עובדים</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-information" href="#!/users">חניכים</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-information" href="#!/users">משתמשים חדשים</a>
+                            </li>
+                        </div>
+                        <li class="nav-item">
+                            <a class="nav-link menu-information" href="#!/hours-report">דיווח שעות</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-information" href="#!/hours-approve">אישור שעות</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-information" ng-click="logout()" href="#!/">התנתקות</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="outSideBar" ng-show="isOpen" ng-click="closeSide()">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

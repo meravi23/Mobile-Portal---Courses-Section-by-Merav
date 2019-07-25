@@ -1,31 +1,31 @@
 @font-face {
     font-family:"Assistant-Bold" ;
-    src: url(css/fonts/Assistant/Assistant-Bold.ttf);
+    src: url(fonts/Assistant/Assistant-Bold.ttf);
   }
 
 @font-face {
   font-family:"Assistant-ExtraBold" ;
-  src: url(css/fonts/Assistant/Assistant-ExtraBold.ttf);
+  src: url(fonts/Assistant/Assistant-ExtraBold.ttf);
 }
 
 @font-face {
     font-family:"Assistant-ExtraLight" ;
-    src: url(css/fonts/Assistant/Assistant-ExtraLight.ttf);
+    src: url(fonts/Assistant/Assistant-ExtraLight.ttf);
   }
 
 @font-face {
   font-family:"Assistant-Light" ;
-  src: url(css/fonts/Assistant/Assistant-Light.ttf);
+  src: url(fonts/Assistant/Assistant-Light.ttf);
 }
 
 @font-face {
     font-family:"Assistant-Regular" ;
-    src: url(css/fonts/Assistant/Assistant-Regular.ttf);
+    src: url(fonts/Assistant/Assistant-Regular.ttf);
   }
   
 @font-face {
   font-family:"Assistant-SemiBold" ;
-  src: url(css/fonts/Assistant/Assistant-SemiBold.ttf);
+  src: url(fonts/Assistant/Assistant-SemiBold.ttf);
 }
 
 

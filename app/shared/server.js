@@ -1,4 +1,5 @@
 app.factory('server', ['$rootScope', '$http', '$q', '$location', function ($rootScope, $http, $q, $location) {
+  
     self={}; 
     self.requestPhp = function (data, type) {
          var deferred = $q.defer();
