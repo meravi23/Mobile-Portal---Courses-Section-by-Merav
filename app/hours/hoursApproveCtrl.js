@@ -4,7 +4,7 @@ app.controller("hoursApproveCtrl", function($scope, server) {
     $scope.month = "";
     $scope.year = "";
     $scope.monthindex = "";
-
+    $scope.loading=true;
     $scope.pageIndex=0;
     var usefulReporters = [];
     const rowsPerPage = 15;
@@ -29,6 +29,7 @@ app.controller("hoursApproveCtrl", function($scope, server) {
     $scope.GetReports = function () {
         
         usefulReporters = [];
+        $scope.loading=true;
         var data={'month': $scope.monthindex, 'year': $scope.year};
         server.requestPhp(data, 'GetAllReporters').then(function (data) {
             for(var i=0;i<data.length; i++)
@@ -72,6 +73,7 @@ app.controller("hoursApproveCtrl", function($scope, server) {
                 }
             }
         });
+        $scope.loading=false;
     }
     $scope.GetReports();
 
