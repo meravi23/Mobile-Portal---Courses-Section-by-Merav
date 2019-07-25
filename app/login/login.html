@@ -1,16 +1,27 @@
-<div class="container">
-    <h1>התחברות</h1>
-    <form>
-        <div class="form-group">
-            <label for="email"></label>
-            <input type="email" class="form-control" name="" id="email" aria-describedby="emailHelpId"
-                placeholder="Email" ng-model="email">
+<div class="login-container login-column">
+    <div>
+        <img src="img\login\01.png" class="login-logo">
+    </div>
+    <form class="login-grow">
+        <div class="login-flex">
+            <div class="form-group login-relative">
+                <input type="text" class="form-control rounded-pill login-credentials" name="" id="email"
+                    ng-model="email" ng-class="{'login-white-bg' : email}">
+                <div class="login-abs" ng-hide="email">אימייל</div>
+            </div>
+            <div class="form-group login-relative">
+                <input type="password" class="form-control rounded-pill login-credentials" name="" id="pwd" ng-model="pass"
+                ng-class="{'login-white-bg' : pass}">
+                <div class="login-abs" ng-hide="pass">סיסמה</div>
+            </div>
+            <div class="form-group login-relative login-login">
+                <button type="submit" class="form-control2 btn btn-light rounded-pill" ng-click="login()"></button>
+                <div class="login-connect">התחברות</div>
+            </div>
+            <div>
+                <a href="">שכחתי סיסמה</a>
+            </div>
         </div>
-        <div class="form-group">
-            <label for=""></label>
-            <input type="password" class="form-control" name="" id="" placeholder="Password" ng-model="pass">
-        </div>
-        <button type="submit" class="btn btn-primary" ng-click="login()">Submit</button>
     </form>
 
 </div>
