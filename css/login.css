@@ -1,7 +1,13 @@
 .container {
     background-color: #1B166E;
-    height: 640px;
-    
+    height: 100vh;
+    width: 100%;
+       
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
 }
 
 .logo {
@@ -42,18 +48,36 @@
     text-align: center;
     width: 100%; 
     pointer-events: none; 
-    top: 205px;
-    font-size: 25px;
+    top: 1%;
+    font-size: 30px;
+    font-weight: bold;
     }
+
+.grow {
+    flex-grow: 1; 
+    padding-bottom: 50px;
+}
 
 .form-control2 {
     background-color: #ffffff;
     height: 50px; 
-         
+             
 }
 
-.btn {
-    margin-right: 35px;
-    position: absolute;
-    top: 200px; 
+.flex {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    
+} 
+
+div > a {
+    color: #ffffff;
+    font-size: 1.3em;
+    
+}
+
+.login {
+    margin-top: auto;
 }
