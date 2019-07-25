@@ -1,6 +1,7 @@
-<div class="row">
+<div class="container">
+
     <portal-navbar></portal-navbar>
-</div>
+
     <div class="row justify-content-center align-items-center">  
         <div class="col-1 arrow arrow-right">
             <img src="img/arrow_right.png" alt="arrow-right" ng-click="goLeft()"></div>
@@ -42,12 +43,21 @@
                     
                 </div>
             </uib-accordion-heading>
-            <!-- <div class="row">
+            <div class="row">
                 <div class="report-selection-button-action">
-                    <div>סמן הכל</div>
-                    <div class="row-selection-indicator" ng-class="{'checked-row':reporter.chooseAll}" ng-click="chooseAll(reporter)"></div>
+                    <div class="row-selection-indicator" ng-class="{'checked-row':reporter.chooseAll, 'unchecked-row':!reporter.chooseAll}" ng-click="chooseAll(reporter)">
+                    </div>
+                    <span>סמן הכל</span>
                 </div>
-            </div> -->
+                <div class="mr-auto">
+                        <div class="report-approve-button-action">
+                        </div>
+                        <span>אישור מסומנים</span>
+                        <div class="report-reject-button-action">
+                        </div>
+                        <span>דחיית מסומנים</span>
+                </div>
+            </div>
             <p>The body of the uib-accordion group grows to fit the contents</p>
             
         </div>

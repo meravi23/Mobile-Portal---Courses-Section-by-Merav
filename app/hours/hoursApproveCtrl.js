@@ -211,4 +211,14 @@ app.controller("hoursApproveCtrl", function($scope, server) {
 		}
     }
 
+    $scope.chooseAll = function(reporter)
+    {
+        reporter.chooseAll=!reporter.chooseAll;
+        for(var i=0; i<reporter.reports.length; i++)
+        {
+            if(reporter.reports[i].status2)
+                reporter.reports[i]["choose"] = reporter.chooseAll;
+        }
+    }
+
 });
