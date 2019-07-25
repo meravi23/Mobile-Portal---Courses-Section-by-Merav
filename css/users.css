@@ -1,0 +1,27 @@
+.table-users {
+    border: none;
+    width: 100%;
+    font-size: 12px;
+}
+
+.thead-users{
+    line-height:52px;
+}
+
+.th-users {
+    text-align: center;
+    font-family:"Assistant-SemiBold" ;
+}
+
+.td-users {
+    text-align: right; 
+    font-family:"Assistant-Regular";
+}
+
+.tr-users {
+    padding: 10px;
+    line-height: 42px;
+    padding: 20px;
+    box-shadow: 0px 6px 3px -5px rgba(26, 0, 0, 0.5);
+    text-align: center;
+}
