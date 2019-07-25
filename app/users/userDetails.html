@@ -1,7 +1,12 @@
 <div>
     <portal-navbar></portal-navbar>
-    <div class="container">
+    <div class="container user-tabs">
         <h1>פרטי משתמש</h1>
-        {{test}}
+        <uib-tabset active="activeJustified" justified="true">
+            <uib-tab index="0" heading="פרופיל">פרופיל</uib-tab>
+            <uib-tab index="1" heading="קורסים">קורסים</uib-tab>
+            <uib-tab index="2" heading="עובדים">עובדים</uib-tab>
+            <uib-tab index="3" heading="דיווח">דיווח</uib-tab>
+        </uib-tabset>
     </div>
 </div>

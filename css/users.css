@@ -25,3 +25,7 @@
     box-shadow: 0px 6px 3px -5px rgba(26, 0, 0, 0.5);
     text-align: center;
 }
+
+.user-tabs ul{
+    padding:0;
+}
