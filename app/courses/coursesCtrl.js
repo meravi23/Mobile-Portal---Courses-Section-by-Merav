@@ -45,7 +45,7 @@ app.controller("coursesCtrl", function ($rootScope, $scope, server, $location) {
 	}
 
 	$scope.pageUp = function () {
-		if ($scope.pageIndex <= $scope.pageCount) {
+		if ($scope.pageIndex < $scope.pageCount) {
 			$scope.pageIndex++;
 		} else {
 			return;

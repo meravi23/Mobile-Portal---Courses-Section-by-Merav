@@ -1,6 +1,6 @@
 <div class="courses">
     <portal-navbar></portal-navbar>
-    <div class="container">
+    <div class="container courses-container">
         <div class="container">
             <div class="row">
                 <div class="input-wrap my-3 col-8">
@@ -40,15 +40,13 @@
                 </table>
             </div>
 
-            <!-- TODO: simple button-like click, no tabs -->
-            <div class="my-5 course-tabs">
-                <ul class="nav nav-tabs" ng-init="tabindex='activetable'">
-                    <li ng-class="{active:courseStatus==1}"><a ng-click="goToActiveTab();">קורסים
-                            פעילים</a>
-                    </li>
-                    <li ng-class="{active:courseStatus==0}"><a ng-click="goToInactiveTab();">קורסים לא פעילים</a>
-                    </li>
-                </ul>
+            <div class="row fixed-tabs d-flex align-items-center">
+                <div class="col-6 course-tabs" ng-class="{active:courseStatus==1}">
+                    <a ng-click="goToActiveTab();">קורסים פעילים</a>
+                </div>
+                <div class="col-6 course-tabs" ng-class="{active:courseStatus==0}">
+                    <a ng-click="goToInactiveTab();">קורסים לא פעילים</a>
+                </div>
             </div>
 
         </div>
