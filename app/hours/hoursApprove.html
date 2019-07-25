@@ -1,7 +1,51 @@
-<div>
+<div class="row">
     <portal-navbar></portal-navbar>
-    <div class="container">
-        <h1>אישור שעות</h1>
-        {{test}}
+</div>
+    <div class="row justify-content-center align-items-center">  
+        <div class="col-1 arrow arrow-right">
+            <img src="/img/arrow_right.png" alt="arrow-right" ng-click="goLeft()"></div>
+        <div class="col-3 month text-center"><b>{{month}}</b></div>
+        <div class="col-1 arrow arrow-left">
+            <img src="/img/arrow_left.png" alt="arrow-left" ng-click="goRight()"></div>
     </div>
+    
+    <div class="input-wrap">
+        <input type="text" placeholder="חיפוש עובד" ng-model="search" 
+            ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?refreshResults():'';">
+    </div>
+
+    <!--
+        for now search will be active when click on enter and not on every change
+        ng-change="pageIndex=0;refreshResults();"
+    -->
+    <uib-accordion close-others="true">
+
+        <div uib-accordion-group class="panel-default" is-open="reporterHeaderOpen"    
+            ng-repeat="($reporterIndex, reporter) in (allreporters | orderBy:'firstname') track by reporter.userid">
+            <uib-accordion-heading>
+                <div class="row justify-content-between">
+                    <div class="reporter-title ml-auto">
+                        {{ reporter.firstname + ' ' + reporter.lastname }}
+                    </div>
+                    <div class="mr-auto">
+                        <span class="reporting-hours unapproved-hours">{{ reporter.unapprovedHours }}</span>
+                        <span class="reporting-hours approved-hours">{{ reporter.approvedHours }}</span>
+                        <span class="reporting-hours rejected-hours">{{ reporter.rejectedHours }}</span>
+                        <span class="reporting-hours reported-hours">{{ reporter.reportedHours }}</span>
+                        <span class="reporter-header-arrow" ng-show="!reporterHeaderOpen">
+                            <img src="/img/arrow_down.png" alt="">
+                        </span>
+                        <span class="reporter-header-arrow" ng-show="reporterHeaderOpen">
+                            <img src="/img/arrow_up.png" alt="">
+                        </span>
+                    </div>
+                    <!-- <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i> -->
+                </div>
+            </uib-accordion-heading>
+            <p>The body of the uib-accordion group grows to fit the contents</p>
+            
+        </div>
+
+    </uib-accordion>
+
 </div>
