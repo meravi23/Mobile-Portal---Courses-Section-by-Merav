@@ -1,7 +1,6 @@
 <div>
     <portal-navbar></portal-navbar>
     <div class="container">
-        <h1>משתמשים</h1>
         <!-- <div>
             <input type="text" class="form-input search-bar" placeholder="חיפוש עובד" ng-model="search"
                 ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?refreshResults():'';">
@@ -12,25 +11,23 @@
         </div> -->
         <!-- <page-navigator page-count="pageCount" page-index="pageIndex" go-to-page="goToPage" loading="loading">
         </page-navigator> -->
-        <div class="scrolling-table-wrapper">
-            <div class="scrolling-table clickable">
-                <table class="table-hover midrows">
-                    <thead>
-                        <tr>
-                            <th>שם</th>
-                            <th>שם משפחה</th>
-                            <th>אימייל</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-click="goToUserPage(user)" ng-repeat="user in users">
-                            <td class="small-cell">{{user.firstname}}</td>
-                            <td class="small-cell">{{user.lastname}}</td>
-                            <td class="large-cell">{{user.email}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div>
+            <table class="table-users">
+                <thead class="thead-users">
+                    <tr>
+                        <th class="th-users">שם</th>
+                        <th class="th-users">שם משפחה</th>
+                        <th class="th-users">אימייל</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tr-users" ng-click="goToUserPage(user)" ng-repeat="user in users">
+                        <td class="td-users small-cell">{{user.firstname}}</td>
+                        <td class="td-users small-cell">{{user.lastname}}</td>
+                        <td class="td-users large-cell">{{user.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <!-- <page-navigator page-count="pageCount" page-index="pageIndex" go-to-page="goToPage" loading="loading">
         </page-navigator>
