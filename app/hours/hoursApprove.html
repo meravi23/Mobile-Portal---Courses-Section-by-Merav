@@ -3,11 +3,11 @@
     <portal-navbar></portal-navbar>
 
     <div class="row justify-content-center align-items-center">  
-        <div class="col-1 arrow arrow-right">
-            <img src="img/arrow_right.png" alt="arrow-right" ng-click="goLeft()"></div>
-        <div class="col-3 month text-center"><b>{{month}}</b></div>
-        <div class="col-1 arrow arrow-left">
-            <img src="img/arrow_left.png" alt="arrow-left" ng-click="goRight()"></div>
+        <div class="mx-auto">
+            <img src="img/arrow_right.png" alt="arrow-right" ng-click="goLeft()">
+            <span class="month text-center"><b>{{month}}</b></span>
+            <img src="img/arrow_left.png" alt="arrow-left" ng-click="goRight()">
+        </div>
     </div>
     
     <div class="input-wrap">
@@ -19,6 +19,7 @@
         for now search will be active when click on enter and not on every change
         ng-change="pageIndex=0;refreshResults();"
     -->
+    <div ng-if="loading">טוען...</div>
     <uib-accordion close-others="true">
 
         <div uib-accordion-group class="panel-default" is-open="reporterHeaderOpen"    
@@ -44,21 +45,28 @@
                 </div>
             </uib-accordion-heading>
             <div class="row">
-                <div class="report-selection-button-action">
+                <div class="d-flex report-selection-button-action">
                     <div class="row-selection-indicator" ng-class="{'checked-row':reporter.chooseAll, 'unchecked-row':!reporter.chooseAll}" ng-click="chooseAll(reporter)">
                     </div>
-                    <span>סמן הכל</span>
+                    <div class="report-button-text">סמן הכל</div>
                 </div>
-                <div class="mr-auto">
+                <div class="mr-auto report-approve-reject-button">
+                    <div class="d-flex">
                         <div class="report-approve-button-action">
                         </div>
-                        <span>אישור מסומנים</span>
+                        <div class="report-button-text">אישור מסומנים</div>
+                    </div>
+                    <div class="d-flex">
                         <div class="report-reject-button-action">
                         </div>
-                        <span>דחיית מסומנים</span>
+                        <div class="report-button-text">דחיית מסומנים</div>
+                    </div>
                 </div>
             </div>
-            <p>The body of the uib-accordion group grows to fit the contents</p>
+            <div ng-repeat="($index, rep)  in reporter.reports track by $index">
+                    <p>The body of the uib-accordion group grows to fit the contents</p>
+            </div>
+            
             
         </div>
 
