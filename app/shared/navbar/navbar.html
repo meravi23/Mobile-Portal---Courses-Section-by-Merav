@@ -26,7 +26,7 @@
 </nav> -->
 <div>
 
-    <div ng-show="!isOpen">
+    <div>
         <i class="fas fa-bars" ng-click="openSide()"></i>
     </div>
 
@@ -40,6 +40,7 @@
                 </div>
                 <div class="profile-preview">
                     <div class="name-wrap">
+                        <img src="img/profile_icon.png" alt="profile_icon">
                         <span class="user-name">
                             my name
                         </span>
@@ -47,18 +48,24 @@
                 </div>
                 <div class="sidebar-options">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link menu-information" href="#!/courses"
-                                ng-click="goToCoursesPage()">קורסים</a>
-                        </li>
                         <div class="users-nav">
-                            <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/users">משתמשים</a>
+                            <img src="img/noun_book_2349054.png" alt="">
+                            <li class="nav-item active">
+                                <a class="nav-link menu-information" href="#!/courses"
+                                    ng-click="goToCoursesPage()">קורסים</a>
                             </li>
-                            <img class="arrowbardown" src="img/arrow_down.png" alt="arrow_down"> 
                         </div>
 
-                        <div ng-hide="true">
+                        <div class="users-nav" ng-click="usermanuclick()">
+                            <img src="img/noun_user_user_1064877.png" alt="">
+                            <li class="nav-item">
+                                <a class="nav-link menu-information">משתמשים</a>
+                            </li>
+                            <img class="arrowbardown" src="img/arrow_down.png" ng-hide="usermanu" alt="arrow_down">
+                            <img class="arrowbarup" src="img/arrow_up.png" ng-show="usermanu" alt="arrow_up">
+                        </div>
+
+                        <div ng-show="usermanu">
                             <li class="nav-item">
                                 <a class="nav-link menu-information" href="#!/users">עובדים</a>
                             </li>
@@ -69,18 +76,30 @@
                                 <a class="nav-link menu-information" href="#!/users">משתמשים חדשים</a>
                             </li>
                         </div>
-                        <li class="nav-item">
-                            <a class="nav-link menu-information" href="#!/hours-report">דיווח שעות</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link menu-information" href="#!/hours-approve">אישור שעות</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link menu-information" ng-click="logout()" href="#!/">התנתקות</a>
-                        </li>
+                        <div class="users-nav">
+                            <img src="img/noun_time_1610737.png" alt="hours-report">
+                            <li class="nav-item">
+                                <a class="nav-link menu-information" href="#!/hours-report">דיווח שעות</a>
+                            </li>
+                        </div>
+                        <div class="users-nav">
+                            <img src="img/noun_check_box_38652.png" alt="">
+                            <li class="nav-item">
+                                <a class="nav-link menu-information" href="#!/hours-approve">אישור שעות</a>
+                            </li>
+                        </div>
+                        <div class="users-nav">
+                            <img src="img/noun_off_1915997.png" alt="logout">
+                            <li class="nav-item">
+                                <a class="nav-link menu-information" ng-click="logout()" href="#!/">התנתקות</a>
+                            </li>
+                        </div>
+
+
+
                     </ul>
                 </div>
-                <div class="outSideBar" ng-click="closeSide()">
+                <div class="outSideBar" ng-show="isOpen" ng-click="closeSide()">
                 </div>
             </div>
         </div>

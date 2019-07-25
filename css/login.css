@@ -1,0 +1,93 @@
+.login-container {
+    background-color: #1B166E;
+    height: 100vh;
+    width: 100%;
+       
+}
+
+.login-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-logo {
+    display: block;
+    margin: auto;
+    padding-top: 40px; 
+    padding-bottom: 50px;
+}
+
+.form-control {
+    background-color: #1B166E;
+    height: 50px; 
+    
+}
+
+.form-control.login-white-bg {
+    background-color: white;
+}
+
+.rounded-pill {
+    width: 311.2px;
+    margin: auto;
+}
+
+.login-relative {
+    position: relative;
+}
+
+.login-abs {
+    position: absolute; 
+    color: #ffffff;
+    text-align: center;
+    width: 100%; 
+    pointer-events: none; 
+    top: 9.5%;
+    font-size: 25px;
+}
+
+.login-connect {
+    position: absolute; 
+    color: #1B166E;
+    text-align: center;
+    width: 100%; 
+    pointer-events: none; 
+    top: 1%;
+    font-size: 30px;
+    font-weight: bold;
+    }
+
+.login-grow {
+    flex-grow: 1; 
+    padding-bottom: 50px;
+}
+
+.form-control2 {
+    background-color: #ffffff;
+    height: 50px; 
+             
+}
+
+.login-flex {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    
+} 
+
+div > a {
+    color: #ffffff;
+    font-size: 1.3em;
+    
+}
+
+.login-login {
+    margin-top: auto;
+}
+
+.login-credentials {
+    direction: ltr;
+    text-align: left;
+    font-size: 1.3em;
+}

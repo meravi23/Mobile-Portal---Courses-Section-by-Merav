@@ -1,8 +1,6 @@
 app.controller("navbarCtrl", function($scope) {
 
-    // $scope.toggleBar=function() {
-    //     $scope.isOpen = !$scope.isOpen;
-    // }
+
     
 $scope.isOpen = false
 $scope.openSide=function(){
@@ -13,10 +11,12 @@ $scope.closeSide=function(){
 $scope.isOpen=false;
 }
 
-// $scope.goToCoursesPage = function() {
-//     $rootScope.isOpen = false;
-//     $state.transitionTo('courses');
-// };
+$scope.usermanu=false;
+
+$scope.usermanuclick=function(){
+    $scope.usermanu=!$scope.usermanu;
+    
+}
 
 
 })
