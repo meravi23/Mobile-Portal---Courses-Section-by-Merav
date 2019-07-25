@@ -6,23 +6,39 @@
             "new":"SearchNewUsers",
             "excel":"SearchStaffUnderMeForExcel"
         };
-        
-        // var fetchMethodsFull={
-        //     "student":"SearchStudentsUnderMe",
-        //     "staff":"SearchStaffUnderMeForExcel",
-        //     "new":"SearchNewUsers"
-        // };
-    
-        // $scope.alertcontrol={};
-        // $scope.show=false;
-    
-        // //for excel useage
-        // $scope.AllUsersUnderMe={};
 
+		// $rootScope.stateName = "course";
+
+		// $scope.courses=[];
+		// $scope.pageIndex=0;
+		// $scope.search = "";
+	
+		// $scope.getCourses = function() {
+		// 	$scope.loading=true;
+		// 	var search = $scope.search;
+		// 	var sorting = "courseid";
+		// 	var desc = false;
+		// 	var coursestatus = 1;
+		// 	var page = 0;
+	
+		// 	var data ={'search': search, 'sorting': sorting, 'desc':desc, 'coursestatus': coursestatus, 'page': page};
+		// 	console.log(data);
+		// 	server.requestPhp(data, 'SearchCourses').then(function (data) {
+		// 		$scope.courses = data.courses;
+		// 		$scope.pageCount = parseInt(data.pages);
+		// 		$scope.loading=false;
+		// 		$scope.GetMyProfile();
+		// 		$scope.GetUserExtendedProfile();
+		// 	});
+		// }
+		// $scope.getCourses();
+		
+
+		$scope.search = "";
     	$scope.users=[];
         $scope.getUsers = function() {
             $scope.loading=true;
-            var search = $scope.search = "";
+            var search = $scope.search;
             var sorting = $scope.sortingField = "userid"
             var desc = $scope.reverseOrder = "false";
             var userstatus = $scope.userStatus = 1;

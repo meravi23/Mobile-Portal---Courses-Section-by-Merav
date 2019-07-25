@@ -1,6 +1,10 @@
 <div>
     <portal-navbar></portal-navbar>
     <div class="container">
+        <div class="input-wrap">
+            <input type="text" class="user-search" placeholder="חיפוש משתמש" ng-model="search"
+                ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?getUsers():'';">
+        </div>
         <!-- <div>
             <input type="text" class="form-input search-bar" placeholder="חיפוש עובד" ng-model="search"
                 ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?refreshResults():'';">
