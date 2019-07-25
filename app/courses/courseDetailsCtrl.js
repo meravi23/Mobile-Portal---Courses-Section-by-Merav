@@ -1,3 +1,4 @@
-app.controller("courseDetailsCtrl", function($scope) {
-    $scope.test = "blabla";
+app.controller("courseDetailsCtrl", function($scope, $rootScope, $stateParams) {
+    
+   
 });

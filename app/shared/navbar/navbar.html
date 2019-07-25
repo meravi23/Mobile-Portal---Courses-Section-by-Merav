@@ -31,8 +31,9 @@
 </div>
 
 <div ng-class="{'sidebar-open' : isOpen}">
+       
         <div class="sidebar-background"></div>
-        <div class="sidebar-wrap"> <span class="close" ng-click="closeSide()">X</span>
+        <div class="sidebar-wrap"><i class="closeBar" ng-click="closeSide()">&times;</i>
             <div class="sidebar">
                 <div class="sidebar-header">
                     <img class="appleseeds-logo" src="img/bg_logo.png"></img>
@@ -63,6 +64,8 @@
                         </li>    
                     </ul>
                 </div>
+                <div class="outSideBar" ng-click="closeSide()">
+                    </div>
             </div>
         </div>
     </div>

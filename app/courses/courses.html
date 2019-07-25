@@ -1,7 +1,47 @@
-<div>
+<div class="courses">
     <portal-navbar></portal-navbar>
     <div class="container">
         <h1>קורסים</h1>
-        {{test}}
+        <div class="input-wrap">
+            <input type="text" placeholder="חיפוש קורס"
+             ng-model="search" ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?getCourses():'';">
+        </div>
+
+        <div class="panel-body">
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th sorter-table-header field-index="'subname'" field-text="'שם קורס מקוצר'"
+                                sort-by-field="sortBy" sorting-field="sortingField" reverse-order="reverseOrder"
+                                class="col-4">שם קורס מקוצר</th>
+                            <th sorter-table-header field-index="'project'" field-text="'פרויקט'" sort-by-field="sortBy"
+                                sorting-field="sortingField" reverse-order="reverseOrder" class="col-4">פרויקט</th>
+                            <th sorter-table-header field-index="'teachers'" field-text="'מדריך'" class="col-4">
+                                מדריך</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-model="courses">
+                        <tr ng-click="goToCoursePage(course)"
+                            ng-repeat="course in courses | orderBy:sortType:sortReverse">
+                            <td title="{{course.subname}}">{{course.subname}}</td>
+                            <td title="{{course.project}}">{{course.project}}</td>
+                            <td title="{{course.teachers}}">{{course.teachers}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="my-5 course-tabs">
+                <ul class="nav nav-tabs" ng-init="tabindex='activetable'">
+                    <li class="col-6" ng-class="{active:courseStatus==1}"><a ng-click="goToActiveTab();">קורסים
+                            פעילים</a>
+                    </li>
+                    <li class="col-6" ng-class="{active:courseStatus==0}"><a
+                            ng-click="goToInactiveTab();">קורסים לא פעילים</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
     </div>
-</div>
