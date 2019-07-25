@@ -1,12 +1,8 @@
 
-.courses {
-	font-family: "Assistant-Regular";
-}
-
 .input-wrap {
-	width: 90vw;
+	width: 80vw;
 	margin: auto;
-	background-color: #ddd;
+	background-color: #26bcbcbc;
 	height: 12vw;
 	border-radius: 94px;
 	padding: 3%;
@@ -32,11 +28,6 @@
 }
 .input-wrap input::placeholder{
 	color:white
-}
-
-/* Tabs*/
-section {
-    padding: 60px 0;
 }
 
 section .section-title {
@@ -72,3 +63,27 @@ section .section-title {
 	height: 10%;
 }
 
+.course-tabs .nav-tabs li {
+	display: inline;
+}
+
+.courses-center {
+	text-align: center;
+}
+
+.courses-bold {
+	font-weight: bold;
+}
+
+.courses-line-height {
+	height: 90px;
+}
+
+.courses-input {
+	padding-right: 10px;
+}
+
+/* TODO: change placeholder font  */
+/* ::placeholder {
+	color: red;
+  } */
