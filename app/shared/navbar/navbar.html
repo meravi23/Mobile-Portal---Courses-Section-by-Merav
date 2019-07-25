@@ -25,13 +25,13 @@
     </div>
 </nav> -->
 <div>
-    
-<div ng-show="!isOpen">
-    <i class="fas fa-bars" ng-click="openSide()"></i>
-</div>
 
-<div ng-class="{'sidebar-open' : isOpen}">
-       
+    <div ng-show="!isOpen">
+        <i class="fas fa-bars" ng-click="openSide()"></i>
+    </div>
+
+    <div ng-class="{'sidebar-open' : isOpen}">
+
         <div class="sidebar-background"></div>
         <div class="sidebar-wrap"><i class="closeBar" ng-click="closeSide()">&times;</i>
             <div class="sidebar">
@@ -40,19 +40,35 @@
                 </div>
                 <div class="profile-preview">
                     <div class="name-wrap">
-                        <span class="user-name"> 
-                           my name
+                        <span class="user-name">
+                            my name
                         </span>
                     </div>
                 </div>
                 <div class="sidebar-options">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link menu-information" href="#!/courses" ng-click="goToCoursesPage()">קורסים</a>
+                            <a class="nav-link menu-information" href="#!/courses"
+                                ng-click="goToCoursesPage()">קורסים</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link menu-information" ng-click="goToSettingPage()" href="#!/users">משתמשים</a>
-                        </li>
+                        <div class="users-nav">
+                            <li class="nav-item">
+                                <a class="nav-link menu-information" href="#!/users">משתמשים</a>
+                            </li>
+                            <img class="arrowbardown" src="img/arrow_down.png" alt="arrow_down"> 
+                        </div>
+
+                        <div ng-hide="true">
+                            <li class="nav-item">
+                                <a class="nav-link menu-information" href="#!/users">עובדים</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-information" href="#!/users">חניכים</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-information" href="#!/users">משתמשים חדשים</a>
+                            </li>
+                        </div>
                         <li class="nav-item">
                             <a class="nav-link menu-information" href="#!/hours-report">דיווח שעות</a>
                         </li>
@@ -61,11 +77,11 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link menu-information" ng-click="logout()" href="#!/">התנתקות</a>
-                        </li>    
+                        </li>
                     </ul>
                 </div>
                 <div class="outSideBar" ng-click="closeSide()">
-                    </div>
+                </div>
             </div>
         </div>
     </div>
