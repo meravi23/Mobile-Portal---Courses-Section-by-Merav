@@ -79,10 +79,22 @@ section .section-title {
 	padding-right: 10px;
 }
 
+.th-courses {
+	width: 33%;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+}
+
 .td-courses {
 	text-align: center;
 	height: 90px;
 	font-family:"Assistant-Regular";
+	width: 33%;
+	overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: pre-line;
+	line-height: 1.6;
 }
 
 /* TODO: change placeholder font  */
