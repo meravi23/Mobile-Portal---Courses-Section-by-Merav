@@ -188,7 +188,7 @@
 }
 
 .outSideBar {
-/* border: solid black; */
+border: solid black;
 height: 100%;
 width: 18%;
 position: fixed;

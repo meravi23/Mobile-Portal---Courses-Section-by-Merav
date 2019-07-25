@@ -32,7 +32,7 @@
 
     <div ng-class="{'sidebar-open' : isOpen}">
 
-        <div class="sidebar-background" ng-hide="isOpen"></div>
+        <div class="sidebar-background"></div>
         <div class="sidebar-wrap"><i class="closeBar" ng-click="closeSide()">&times;</i>
             <div class="sidebar">
                 <div class="sidebar-header">
@@ -81,7 +81,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="outSideBar" ng-click="closeSide()">
+                <div class="outSideBar" ng-show="isOpen" ng-click="closeSide()">
                 </div>
             </div>
         </div>
