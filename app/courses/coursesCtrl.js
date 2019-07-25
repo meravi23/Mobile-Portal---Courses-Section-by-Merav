@@ -1,13 +1,14 @@
-app.controller("coursesCtrl", function ($rootScope, $scope, server) {
+app.controller("coursesCtrl", function ($rootScope, $scope, server, $location) {
 
     $rootScope.stateName = "course";
 
 	$scope.courses=[];
-    $scope.pageIndex=0;
+	$scope.pageIndex=0;
+	$scope.search = "";
 
     $scope.getCourses = function() {
 		$scope.loading=true;
-		var search = "";
+		var search = $scope.search;
 		var sorting = "courseid";
 		var desc = false;
 		var coursestatus = 1;
@@ -41,7 +42,27 @@ app.controller("coursesCtrl", function ($rootScope, $scope, server) {
             $scope.Extendedprofile = data;
           //  console.log($scope.Extendedprofile);
         });
-    }
+	}
+	
+
+	$scope.refreshResults=function()
+	{
+
+		$location('.', {
+			search : $scope.search,
+			page: $scope.pageIndex
+		},
+		// $state.go('.', {
+		// 	search : $scope.search,
+		// 	sorting : $scope.sortingField,
+		// 	desc : $scope.reverseOrder,
+		// 	page: $scope.pageIndex
+		// },
+		{
+			notify: false
+		});
+		$scope.getCourses();
+	}
 
 
     $scope.goToActiveTab = function()

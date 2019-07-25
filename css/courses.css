@@ -1,5 +1,10 @@
+
+.courses {
+	font-family: "Assistant-Regular";
+}
+
 .input-wrap {
-	width: 80vw;
+	width: 90vw;
 	margin: auto;
 	background-color: #ddd;
 	height: 12vw;
