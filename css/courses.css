@@ -43,6 +43,8 @@ section .section-title {
 
 #tabs {
 	color: #eee;
+	width: 100%;
+	margin: 0;
 }
 
 #tabs h6.section-title {
@@ -62,8 +64,11 @@ section .section-title {
 	border: 1px solid transparent;
 	border-top-left-radius: .25rem;
 	border-top-right-radius: .25rem;
-	color: #eee;
-	font-size: 20px;
+	color: #1b166e;
+	font-size: 14px;
+	font-family: "Assistant-SemiBold";
+	line-height: 18px;
+	text-align: center;
 }
 
 .course-tabs a {
@@ -73,6 +78,10 @@ section .section-title {
 
 .course-tabs .nav-tabs li {
 	display: inline;
+}
+
+.crs-full-name {
+	
 }
 
 .courses-center {
