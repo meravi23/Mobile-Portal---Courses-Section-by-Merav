@@ -117,5 +117,10 @@ section .section-title {
 
 ::placeholder {
 	font-family: "Assistant-Regular";
+	font-size: 20sp;
 	padding-right: 30px;
+}
+
+.courses-header {
+	font-size: 28sp;
 }

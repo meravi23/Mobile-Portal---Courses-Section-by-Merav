@@ -73,4 +73,9 @@ app.controller("coursesCtrl", function ($rootScope, $scope, server, $location) {
 		$scope.getCourses();
 	}
 
+	$scope.goToCoursePage = function (course) {
+		var courseId = course.courseid
+		$location.path("/courses/" + courseId);
+	}
+
 });

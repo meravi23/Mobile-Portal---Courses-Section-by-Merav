@@ -1,4 +1,3 @@
-app.controller("courseDetailsCtrl", function($scope, $rootScope, $stateParams) {
-    
+app.controller("courseDetailsCtrl", function($scope) {
    
 });
