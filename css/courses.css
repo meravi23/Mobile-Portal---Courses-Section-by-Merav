@@ -80,9 +80,7 @@ section .section-title {
 	display: inline;
 }
 
-.crs-full-name {
-	
-}
+.crs-full-name {}
 
 .courses-center {
 	text-align: center;
@@ -133,7 +131,8 @@ section .section-title {
 .sub-header {
 	width: 360px;
 	height: 145px;
-	margin-top: 26px; 	/*== 50-24*/
+	margin-top: 26px;
+	/*== 50-24*/
 	box-shadow: 0px 6px 3px -5px rgba(26, 0, 0, 0.5);
 }
 
@@ -188,4 +187,27 @@ section .section-title {
 	font-family: "Assistant-Regular";
 	font-size: 10px;
 	margin-top: 36px;
+}
+
+.crs-row {
+	height: 58px;
+	margin-top: 12px;
+}
+
+.crs-top-row {
+	margin-top: 28.5px;
+}
+
+.crs-field-header, .crs-field {
+	font-size: 12px;
+	line-height: 15px;
+	color: #5d5d5d;
+}
+
+.crs-field-header {
+	font-family: "Assistant-SemiBold";
+}
+
+.crs-field {
+	font-family: "Assistant-Light";
 }

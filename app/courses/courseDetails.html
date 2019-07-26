@@ -8,7 +8,8 @@
                 </div>
                 <div class="col-6 courses-icon-row">
                     <div class="row">
-                        <div class="col-2 sub-header-back" ng-click="goBack()"><img src="img\noun_back_arrow_2690272.png"></div>
+                        <div class="col-2 sub-header-back" ng-click="goBack()"><img
+                                src="img\noun_back_arrow_2690272.png"></div>
                         <div class="col-2 sub-header-copy"><img src="img\noun_copy_573715.png"></div>
                         <div class="col-2 sub-header-save"><img src="img\noun_save_2429243.png"></div>
                     </div>
@@ -36,26 +37,67 @@
                                     role="tab" aria-controls="nav-about" aria-selected="false">מדריכים</a>
                             </div>
                         </nav>
-                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-content px-3 px-sm-0" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                 aria-labelledby="nav-home-tab">
-                                <div class="crs-full-name">
-
-                                </div>                                
+                                <div class="row crs-row crs-top-row">
+                                    <div class="col-12">
+                                        <div class="crs-field-header">שם קורס מלא </div>
+                                        <div class="crs-field">{{course.name}}</div>
+                                    </div>
+                                </div>
+                                <div class="row crs-row">
+                                    <div class="col-6">
+                                        <div class="crs-field-header">שם קורס מקוצר בעברית </div>
+                                        <div class="crs-field">{{course.subname}}</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="crs-field-header">שם קורס מקוצר בערבית </div>
+                                        <div class="crs-field">{{course.subnameinarabic}}</div>
+                                    </div>
+                                </div>
+                                <div class="row crs-row">
+                                    <div class="col-12">
+                                        <div class="crs-field-header">פרויקט</div>
+                                        <div class="crs-field">{{course.projectid}}</div>
+                                    </div>
+                                </div>
+                                <div class="row crs-row">
+                                    <div class="col-12">
+                                        <div class="crs-field-header">תגיות</div>
+                                        <div class="crs-field">+</div>
+                                    </div>
+                                </div>
+                                <div class="row crs-row">
+                                    <div class="col-6">
+                                        <div class="crs-field-header">עיר</div>
+                                        <div class="crs-field">{{course.cityid}}</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="crs-field-header">שנת תקציב</div>
+                                        <div class="crs-field">{{course.yearbudgetid}}</div>
+                                    </div>
+                                </div>
+                                <div class="row crs-row">
+                                    <div class="col-12">
+                                        <div class="crs-field-header">מדריך</div>
+                                        <div class="crs-field">{{course.primaryTeacherName}}</div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                 aria-labelledby="nav-profile-tab">
                                 Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui
-                                
+
                             </div>
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel"
                                 aria-labelledby="nav-contact-tab">
                                 Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui
-                                
+
                             </div>
                             <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
                                 Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui
-                                
+
                             </div>
                         </div>
 
