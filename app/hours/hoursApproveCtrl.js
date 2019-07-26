@@ -4,7 +4,7 @@ app.controller("hoursApproveCtrl", function($scope, server) {
     $scope.month = "";
     $scope.year = "";
     $scope.monthindex = "";
-    $scope.loading=true;
+    $scope.loading = true;
     $scope.pageIndex=0;
     var usefulReporters = [];
     const rowsPerPage = 15;
@@ -39,6 +39,7 @@ app.controller("hoursApproveCtrl", function($scope, server) {
                     for (var j=0; j<data[i].reports.length; j++)
                     {
                         var report = data[i].reports[j];
+                        // convert approval to string
                         $scope.calculateHours(report);
                     }
 
