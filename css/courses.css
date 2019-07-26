@@ -115,3 +115,7 @@ section .section-title {
 	background-color: white;
 }
 
+::placeholder {
+	font-family: "Assistant-Regular";
+	padding-right: 30px;
+}
