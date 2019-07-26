@@ -3,6 +3,7 @@ app.controller("coursesCtrl", function ($rootScope, $scope, server, $location) {
 	$rootScope.stateName = "course";
 
 	$scope.courses = [];
+	$scope.courseStatus = 1;
 	$scope.pageIndex = 0;
 	$scope.search = "";
 
@@ -11,7 +12,7 @@ app.controller("coursesCtrl", function ($rootScope, $scope, server, $location) {
 		var search = $scope.search;
 		var sorting = "courseid";
 		var desc = false;
-		var coursestatus = 1;
+		var coursestatus = $scope.courseStatus;
 		var page = $scope.pageIndex;
 
 		var data = { 'search': search, 'sorting': sorting, 'desc': desc, 'coursestatus': coursestatus, 'page': page };
@@ -26,7 +27,6 @@ app.controller("coursesCtrl", function ($rootScope, $scope, server, $location) {
 	}
 	$scope.getCourses();
 
-
 	$scope.GetMyProfile = function () {
 		var data = {};
 		server.requestPhp(data, 'GetMyProfile').then(function (data) {
@@ -34,7 +34,6 @@ app.controller("coursesCtrl", function ($rootScope, $scope, server, $location) {
 			//console.log(data);
 		});
 	}
-
 
 	$scope.GetUserExtendedProfile = function () {
 		var data = {};
@@ -61,29 +60,6 @@ app.controller("coursesCtrl", function ($rootScope, $scope, server, $location) {
 		}
 		$scope.getCourses();
 	}
-
-
-	// $scope.refreshResults=function()
-	// {
-	// 	$location('.', {
-	// 		search : $scope.search,
-	// 		page: $scope.pageIndex
-	// 	},
-	// 	{
-	// 		notify: false
-	// 	});
-	// 	$scope.getCourses();
-	// }
-
-	// $scope.goToPage = function(pageNum)
-	// {
-	// 	if(pageNum>=0&&pageNum<=$scope.pageCount)
-	// 	{
-	// 		$scope.pageIndex=pageNum;
-	// 		$scope.refreshResults();
-	// 	}
-	// }
-
 
 	$scope.goToActiveTab = function () {
 		$scope.pageIndex = 0;
