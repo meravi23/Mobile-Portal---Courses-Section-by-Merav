@@ -124,8 +124,8 @@ section .section-title {
 .sub-header {
 	width: 360px;
 	height: 145px;
-	margin-top: 26px;
-	/*== 50-24*/
+	margin-top: 26px; 	/*== 50-24*/
+	box-shadow: 0px 6px 3px -5px rgba(26, 0, 0, 0.5);
 }
 
 .sub-header-row {
@@ -135,16 +135,16 @@ section .section-title {
 .courses-header {
 	font-size: 28px;
 	font-family: "Assistant-SemiBold";
-	width: 93px;
+	/* max-width: 125px; */
 	line-height: 30px;
 	color: #5d5d5d;
-	margin-right: 18px;
 	margin-top: 8px;
 	margin-bottom: 70px;
+	margin-right: 18px;
 }
 
 .courses-icon-row {
-	width: 249px;
+	/* width: 249px; */
 	margin-top: 16.7px;
 }
 
@@ -167,4 +167,16 @@ section .section-title {
 	width: 19.5px;
 	margin-left: 14px;
 	margin-bottom: 108.2px;
+}
+
+.courses-full-name {
+	height: 34px;
+	margin-right: 18px;
+	margin-bottom: 21px;
+}
+
+.full-name {
+	font-family: "Assistant-Regular";
+	font-size: 10px;
+	margin-top: 36px;
 }
