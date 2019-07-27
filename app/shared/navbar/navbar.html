@@ -46,7 +46,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="sidebar-options">
+                <div class="sidebar-options navcontainer">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <div class="users-nav">
                             <img src="img/noun_book_2349054.png" alt="">
@@ -61,11 +61,11 @@
                             <li class="nav-item">
                                 <a class="nav-link menu-information">משתמשים</a>
                             </li>
-                            <img class="arrowbardown" src="img/arrow_down.png" ng-hide="usermanu" alt="arrow_down">
-                            <img class="arrowbarup" src="img/arrow_up.png" ng-show="usermanu" alt="arrow_up">
+                            <img class="arrowbardown" src="img/arrow_down.png" ng-show="usermanu" alt="arrow_down" ng-class="{'flip-scale-up-hor' : usermanu}">
+                            <img class="arrowbarup" src="img/arrow_up.png" ng-hide="usermanu" alt="arrow_up" ng-class= "{'flip-scale-down-hor' : !usermanu}">
                         </div>
 
-                        <div ng-show="usermanu">
+                        <div ng-show="usermanu" class="animate-show" ng-class="{'animate-hide' : !usermanu}" >
                             <li class="nav-item">
                                 <a class="nav-link menu-information" href="#!/users">עובדים</a>
                             </li>
@@ -76,6 +76,7 @@
                                 <a class="nav-link menu-information" href="#!/users">משתמשים חדשים</a>
                             </li>
                         </div>
+                       
                         <div class="users-nav">
                             <img src="img/noun_time_1610737.png" alt="hours-report">
                             <li class="nav-item">

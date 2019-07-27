@@ -11,7 +11,7 @@ $scope.closeSide=function(){
 $scope.isOpen=false;
 }
 
-$scope.usermanu=false;
+// $scope.usermanu=false;
 
 $scope.usermanuclick=function(){
     $scope.usermanu=!$scope.usermanu;
