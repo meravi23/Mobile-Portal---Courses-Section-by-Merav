@@ -26,9 +26,9 @@
 </nav> -->
 <div>
 
-    <div>
+    <div class="headerNav">
         <i class="fas fa-bars hamburger-nav" ng-click="openSide()"></i>
-        <span>אישור שעות</span>
+        <span class="placeHeadNav"> {{menuIndex()}} </span>
     </div>
 
     <div ng-class="{'sidebar-open' : isOpen}">
@@ -68,13 +68,13 @@
 
                         <div ng-show="usermenu" class="animate-show" ng-class="{'animate-hide' : !usermenu}" >
                             <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/users">עובדים</a>
+                                <a class="nav-link menu-information" href="#!/users?type=staff">עובדים</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/users">חניכים</a>
+                                <a class="nav-link menu-information" href="#!/users?type=student">חניכים</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/users">משתמשים חדשים</a>
+                                <a class="nav-link menu-information" href="#!/users?type=new">משתמשים חדשים</a>
                             </li>
                         </div>
                        
