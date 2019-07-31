@@ -156,7 +156,7 @@
     display: block;
     position: relative;
     padding-left: 25px;
-    margin-bottom: 12px;
+    margin-bottom: 25px;
     font-size: 10px;
     font-family: 'Assistant-Regular';
     -webkit-user-select: none;
@@ -175,8 +175,8 @@
   /* Create a custom radio button */
   .checkmark {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 16px;
+    left: 25px;
     height: 16px;
     width: 16px;
     background-color: #f8f8f8;
