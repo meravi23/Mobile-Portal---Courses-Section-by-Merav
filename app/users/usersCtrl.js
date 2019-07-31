@@ -18,14 +18,13 @@ app.controller("usersCtrl", function ($scope, server, $location) {
 		}
 		return userTypeForServer;
 	};
-
+	$scope.loading = true;
 	$scope.search = "";
 	$scope.users = [];
 	$scope.userStatus = 1;
 	$scope.pageIndex = 0;
 	$scope.userType = $location.search();
 	$scope.getUsers = function () {
-		$scope.loading = true;
 		var search = $scope.search;
 		var sorting = $scope.sortingField = "userid"
 		var desc = $scope.reverseOrder = "false";
@@ -58,6 +57,26 @@ app.controller("usersCtrl", function ($scope, server, $location) {
 	$scope.goToInactiveTab = function () {
 		$scope.pageIndex = 0;
 		$scope.userStatus = 0;
+		$scope.getUsers();
+	}
+
+	$scope.pageUp = function () {
+		if ($scope.pageIndex < $scope.pageCount) {
+			$scope.loading=true;
+			$scope.pageIndex++;
+		} else {
+			return;
+		}
+		$scope.getUsers();
+	}
+
+	$scope.pageDown = function () {
+		if ($scope.pageIndex > 0) {
+			$scope.loading=true;
+			$scope.pageIndex--;
+		} else {
+			return;
+		}
 		$scope.getUsers();
 	}
 
