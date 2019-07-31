@@ -291,4 +291,65 @@ app.controller("hoursApproveCtrl", function($scope, server) {
         }
         return res;
     }
+
+    $scope.getReportersProjectNameById = function(reporter, projectid)
+    {
+        var res = getObjectArrayFieldById(reporter.reportingPerimeter, "projectid", "projectName", projectid);
+        return res;
+    }
+
+    $scope.getReportersProjectCoursesById = function(reporter, projectid)
+    {
+        var res = getArrayFieldById(reporter.reportingPerimeter, "projectid", "courses", projectid);
+        return res;
+    }
+    $scope.getReportersCourseNameById = function(projectCourses, courseid)
+    {
+        if (courseid == null || courseid =="")
+        {
+            return "כללי";
+        }
+        var res =  getObjectArrayFieldById(projectCourses, "courseid", "name", courseid);
+        if (res == null || res=="")
+            res = "כללי";
+        return res;
+    }
+
+
+    function getObjectArrayFieldById (arr, idField, targetField, id)
+    // the structure hold id and object - it is not typical array
+    {
+        if(arr==null||id==null)
+            return null;
+        if (arr[id][idField]===id)
+        {
+            return arr[id][targetField];
+        }
+        return null;
+    }
+
+    $scope.getReportersProjectActionsById = function(reporter, projectid)
+    {
+        var res = getObjectArrayFieldById(reporter.reportingPerimeter, "projectid", "subjects", projectid);
+        return res;
+    }
+    $scope.getReportersActionNameById = function(projectActions, subjectreportid)
+    {
+        return getArrayFieldById(projectActions, "reportsubjectid", "subject", subjectreportid);
+    }
+
+    function getArrayFieldById (arr, idField, targetField, id)
+    {
+        if(arr==null||id==null)
+            return null;
+
+        for (var i=0; i<arr.length; i++)
+        {
+            if (arr[i][idField]===id)
+            {
+                return arr[i][targetField];
+            }
+        }
+        return null;
+    }
 });

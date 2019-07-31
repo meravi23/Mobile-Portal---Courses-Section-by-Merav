@@ -33,17 +33,6 @@
                 </tbody>
             </table>
         </div>
-        <!-- <page-navigator page-count="pageCount" page-index="pageIndex" go-to-page="goToPage" loading="loading">
-        </page-navigator>
-        <div class="card-controls" ng-if="usertype=='admin'">
-            <button type="button" class="button card-control commit-card-edit" ng-click="addStaff()">
-                הוספת עובד <img src="./img/icon-add.png" />
-            </button>
-            <button type="button" class="button file-upload-button card-control">
-                <label for="staff-import">ייבוא עובדים <i class="fa fa-upload"></i></label>
-                <input id="staff-import" type="file" accept=".csv,.xlsx" ngf-select="onFileSelect($files)">
-            </button>
-        </div> -->
         <!-- Nav tabs -->
         <!-- <ul class="nav nav-tabs" ng-init="tabindex='activetable'">
             <li class="clickable" ng-class="{active:staffStatus==1}"><a ng-click="goToActiveTab();">פעילים</a>
@@ -52,6 +41,14 @@
                     פעילים</a>
             </li>
         </ul> -->
+        <div class="row fixed-tabs d-flex align-items-center">
+            <div class="col-6 users-tabs" ng-class="{active:staffStatus==1}">
+                <a ng-click="goToActiveTab();">פעילים</a>
+            </div>
+            <div class="col-6 users-tabs" ng-class="{active:staffStatus==0}">
+                <a ng-click="goToInactiveTab();"> לא פעילים</a>
+            </div>
+        </div>
     </div>
 </div>
 </div>
