@@ -1,9 +1,35 @@
 <div>
     <div class="container hours-report">
         <portal-navbar></portal-navbar>
-        <month-scroll></month-scroll>
+        <hours-report-month-scroll></hours-report-month-scroll>
         <div class="hours-sum">
             {{loading?"...":('סה"כ שעות: '+sumHours())}}
+        </div>
+        <div ng-if="loading">loading...</div>
+        <div class="hour-report-table">
+            <table ng-if="reports.length>0" class="table-hour-report">
+                <thead class="thead-hour-report">
+                    <tr>
+                        <th class="row-actions"></th>
+                        <th style="width: 6em;" class="th-hour-report">תאריך</th>
+                        <th style="width: 7em;" class="th-hour-report">פרויקט</th>
+                        <th style="width: 11em;" class="th-hour-report">נושא פעילות</th>
+                        <th style="width: 9em;" class="th-hour-report">סה"כ שעות</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-class="{'missing-report-subject': rep.missingreportsubject}" ng-repeat="rep in reports">
+                        <td class="row-actions">
+                            <div class="row-action" ng-click="DuplicateData(rep);">
+                                <!-- <img src="./img/duplicate.png"></img> -->
+                            </div>
+                            <div class="row-action" ng-click="Delete(rep);">
+                                <!-- <img src="./img/Xicon.png"></img> -->
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
