@@ -11,10 +11,10 @@ $scope.closeSide=function(){
 $scope.isOpen=false;
 }
 
-$scope.usermanu=false;
+// $scope.usermenu=false;
 
-$scope.usermanuclick=function(){
-    $scope.usermanu=!$scope.usermanu;
+$scope.usermenuclick=function(){
+    $scope.usermenu=!$scope.usermenu;
     
 }
 
