@@ -15,8 +15,7 @@ app.controller("hoursReportMonthScrollCtrl", function($scope) {
         "12":"דצמבר"
     };
     
-    //const rowsPerPage = 15;
-
+    
     $scope.month = "";
     $scope.year = "";
     $scope.monthindex = "";

@@ -1,4 +1,5 @@
 app.controller("hoursReportCtrl", function ($scope, server) {
+    const rowsPerPage = 15;
 
     $scope.GetReports = function () {
         $scope.loading = true;
@@ -63,30 +64,34 @@ app.controller("hoursReportCtrl", function ($scope, server) {
         return async.promise;
     };
 
-    $scope.reportingPerimeter=[];
-    $scope.GetReportingPerimeter = function() {
+    $scope.reportingPerimeter = [];
+    $scope.GetReportingPerimeter = function () {
         var data = {};
         server.requestPhp(data, 'GetMyReportingPerimeter').then(function (data) {
-            $scope.reportingPerimeter=data;
+            $scope.reportingPerimeter = data;
         });
     };
     $scope.GetReportingPerimeter();
 
-    $scope.sumHours = function ()
-    {
+   
+
+    $scope.Delete = function (rep) {
+        $scope.deletedrep = rep;
+        $scope.deletingcontrol.open();
+    };
+
+
+    $scope.sumHours = function () {
         var sum = 0;
-        for (var i=0; i<$scope.reports.length; i++)
-        {
-            if($scope.reports[i].hours)
-            {
-                sum+=timeStringToAmount($scope.reports[i].hours);
+        for (var i = 0; i < $scope.reports.length; i++) {
+            if ($scope.reports[i].hours) {
+                sum += timeStringToAmount($scope.reports[i].hours);
             }
         }
         return sum;
     }
 
-    function timeStringToAmount(timeString)
-    {
+    function timeStringToAmount(timeString) {
         var hoursMinutes = timeString.split(":");
         var hours = parseInt(hoursMinutes[0]);
         var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1]) : 0;
