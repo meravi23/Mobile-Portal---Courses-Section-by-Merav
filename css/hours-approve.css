@@ -54,7 +54,7 @@
     margin-top: 25px;
 }
 
-.card-header {
+.panel-default > .card-header {
     background-color: #ffffff;
 }
 
@@ -298,3 +298,6 @@
       margin: 0;
   }
 
+  .panel-default > div > .card-body {
+  padding: 0;
+}

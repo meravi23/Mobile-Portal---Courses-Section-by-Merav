@@ -1,14 +1,8 @@
-<div class="container">
+<!-- need to have background color on entire width -->
+<!-- <div class="container"> -->
 
     <portal-navbar></portal-navbar>
     <hours-report-month-scroll></hours-report-month-scroll>
-    <!-- <div class="row justify-content-center align-items-center">  
-        <div class="mx-auto">
-            <img src="img/arrow_right.png" alt="arrow-right" ng-click="goLeft()">
-            <span class="month text-center"><b>{{month}}</b></span>
-            <img src="img/arrow_left.png" alt="arrow-left" ng-click="goRight()">
-        </div>
-    </div> -->
     
     <div class="input-wrap">
         <input type="text" placeholder="חיפוש עובד" ng-model="search" 
@@ -20,7 +14,7 @@
         ng-change="pageIndex=0;refreshResults();"
     -->
     <div ng-show="loading">טוען...</div>
-    <uib-accordion ng-show="!loading" close-others="true">
+    <uib-accordion ng-if="!loading" close-others="true">
 
         <div uib-accordion-group class="panel-default" is-open="reporterHeaderOpen"    
             ng-repeat="($reporterIndex, reporter) in (allreporters | orderBy:'firstname') track by reporter.userid">
@@ -40,11 +34,10 @@
                         <span class="reporter-header-arrow" ng-show="reporterHeaderOpen">
                             <img src="img/arrow_up.png" alt="">
                         </span>
-                    </div>
-                    
+                    </div>                
                 </div>
             </uib-accordion-heading>
-            <div class="row">
+            <div class="row" ng-show="reporter.reports.length !=0">
                 <div class="d-flex report-selection-button-action">
                     <div class="row-selection-indicator" ng-class="{'checked-row':reporter.chooseAll, 'unchecked-row':!reporter.chooseAll}" ng-click="chooseAll(reporter)">
                     </div>
@@ -107,6 +100,10 @@
                                     סה"כ שעות: {{rep.hours}}
                                 </span>
                             </div>
+                            <div class="mr-auto">
+                            <span>&#8942;</span>
+
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col">
@@ -139,8 +136,9 @@
                         </div>
                     </div>          
                 </div>
+                
             </div>            
         </div>
     </uib-accordion>
 
-</div>
+<!-- </div> -->
