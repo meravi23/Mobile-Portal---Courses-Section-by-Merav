@@ -219,7 +219,7 @@ app.controller("hoursApproveCtrl", function($scope, server) {
         reporter.chooseAll=!reporter.chooseAll;
         for(var i=0; i<reporter.reports.length; i++)
         {
-            if(reporter.reports[i].status2)
+            //if(reporter.reports[i].status2)
                 reporter.reports[i]["choose"] = reporter.chooseAll;
         }
     }
@@ -255,7 +255,7 @@ app.controller("hoursApproveCtrl", function($scope, server) {
                 {
                     reps[i].approval = reportStatus;
                     reps[i].checkdate = data;
-                    reps[i].status2=true;
+                    // reps[i].status2=true;
                 }
                 $scope.calculateHoursSummary(reporter);
                 if(data === true)
@@ -351,5 +351,19 @@ app.controller("hoursApproveCtrl", function($scope, server) {
             }
         }
         return null;
+    }
+
+    $scope.getSelectedRows = function(reporters)
+    {
+        var keys = Object.keys(reporters.reports);
+        var selected=[];
+        for(var i=0 ; i < keys.length ; i++)
+        {
+            if(reporters.reports[i]["choose"]==true)
+            {
+                selected.push(reporters.reports[i]);
+            }
+        }
+        return selected;
     }
 });
