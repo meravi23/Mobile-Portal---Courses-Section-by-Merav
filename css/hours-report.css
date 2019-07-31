@@ -1,0 +1,26 @@
+.hours-report {
+    font-family: "Assistant-Regular";
+}
+
+.hours-sum {
+    text-align: center;
+    box-shadow: 0px 6px 3px -5px rgba(26, 0, 0, 0.5);
+    font-size: 12px;
+}
+
+.hour-report-table {
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: center;
+    }
+
+.hour-report-table{   
+    padding-right: 0;
+}
+
+.th-hour-report{
+    font-size: 12px;
+    font-family:"Assistant-SemiBold"; 
+    color: #5d5d5d;
+    line-height: 42px;
+}

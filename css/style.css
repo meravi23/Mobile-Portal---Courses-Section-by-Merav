@@ -34,3 +34,11 @@ body {
     text-align: right;
  
 }
+
+/* for shered directives  */
+.month-scroll-txt{
+  text-align: center;
+  font-family:"Assistant-SemiBold";
+  font-size: 28px;
+  color: #5d5d5d;
+}

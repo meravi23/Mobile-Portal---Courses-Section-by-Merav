@@ -1,108 +1,83 @@
-    app.controller("usersCtrl", function($scope, server) {
+app.controller("usersCtrl", function ($scope, server, $location) {
 
-        var fetchMethods={
-            "student":"SearchStudentsUnderMe",
-            "staff":"SearchStaffUnderMe",
-            "new":"SearchNewUsers",
-            "excel":"SearchStaffUnderMeForExcel"
-        };
+	SwitchUser = function (userType) {
+		var userTypeForServer;
+		switch (userType.type) {
+			case "staff":
+				userTypeForServer = "SearchStaffUnderMe";
+				break;
+			case "student":
+				userTypeForServer = "SearchStudentsUnderMe";
+				break;
+			case "new":
+				userTypeForServer = "SearchNewUsers";
+				break
+			default:
+				userTypeForServer = "SearchStaffUnderMe";
 
-		// $rootScope.stateName = "course";
+		}
+		return userTypeForServer;
+	};
+	$scope.loading = true;
+	$scope.search = "";
+	$scope.users = [];
+	$scope.userStatus = 1;
+	$scope.pageIndex = 0;
+	$scope.userType = $location.search();
+	$scope.getUsers = function () {
+		var search = $scope.search;
+		var sorting = $scope.sortingField = "userid"
+		var desc = $scope.reverseOrder = "false";
+		var userstatus = $scope.userStatus;
+		var page = $scope.pageIndex;
 
-		// $scope.courses=[];
-		// $scope.pageIndex=0;
-		// $scope.search = "";
-	
-		// $scope.getCourses = function() {
-		// 	$scope.loading=true;
-		// 	var search = $scope.search;
-		// 	var sorting = "courseid";
-		// 	var desc = false;
-		// 	var coursestatus = 1;
-		// 	var page = 0;
-	
-		// 	var data ={'search': search, 'sorting': sorting, 'desc':desc, 'coursestatus': coursestatus, 'page': page};
-		// 	console.log(data);
-		// 	server.requestPhp(data, 'SearchCourses').then(function (data) {
-		// 		$scope.courses = data.courses;
-		// 		$scope.pageCount = parseInt(data.pages);
-		// 		$scope.loading=false;
-		// 		$scope.GetMyProfile();
-		// 		$scope.GetUserExtendedProfile();
-		// 	});
-		// }
-		// $scope.getCourses();
-		
+		var userClassificationFetchMethod = SwitchUser($scope.userType);
 
-		$scope.search = "";
-    	$scope.users=[];
-        $scope.getUsers = function() {
-            $scope.loading=true;
-            var search = $scope.search;
-            var sorting = $scope.sortingField = "userid"
-            var desc = $scope.reverseOrder = "false";
-            var userstatus = $scope.userStatus = 1;
-			var page = $scope.pageIndex = 0;			
-            
-            var userClassificationFetchMethod = fetchMethods[$scope.userType] = "SearchStaffUnderMe";
-    
-            var data ={'search': search, 'sorting': sorting, 'desc':desc, 'userstatus': userstatus, 'page': page};
-            server.requestPhp(data, userClassificationFetchMethod).then(function (data) {
-                $scope.users = data.users;
-                $scope.pageCount = parseInt(data.pages);
-                $scope.loading=false;
-            });
-        }
-    
-        $scope.getUsers();
-
-		
-	// // $scope.search=$stateParams.search;
-	// // $scope.sortingField=$stateParams.sorting?$stateParams.sorting:"staffid";
-    // $scope.pageIndex = 1;
-	// // $scope.pageCount;
-	// $scope.staffList=[];
-	// $scope.staffStatus=1;
-	
-	// $scope.getStaff = function() {
-    //     $scope.loading=true;
-	// 	var search = $scope.search;
-	// 	var sorting = $scope.sortingField;
-	// 	var desc = $scope.reverseOrder;
-	// 	var userstatus = $scope.staffStatus;
-	// 	var page = $scope.pageIndex;
-
-	// 	var data ={'search': search, 'sorting': sorting, 'desc':desc, 'userstatus': userstatus, 'page': page};
-        
-	// 	server.requestPhp(data, 'SearchStaff').then(function (data) {
-	// 		$scope.staffList = data.staff;
-	// 		$scope.pageCount = parseInt(data.pages);
-	// 		$scope.loading=false;
-	// 	});
-	// }
-	// $scope.getStaff();
-	
-	// $scope.goToActiveTab = function()
-	// {
-	// 	$scope.pageIndex=0;
-	// 	$scope.staffStatus=1;
-	// 	$scope.getStaff();
-	// }
-	
-	// $scope.goToInactiveTab = function()
-	// {
-	// 	$scope.pageIndex=0;
-	// 	$scope.staffStatus=0;
-	// 	$scope.getStaff();
-	// }
-	
-	$scope.goToUserPage = function(staff)
-	{
-		$state.transitionTo('userDetails', {
-			userId : user.id
+		var data = { 'search': search, 'sorting': sorting, 'desc': desc, 'userstatus': userstatus, 'page': page };
+		server.requestPhp(data, userClassificationFetchMethod).then(function (data) {
+			$scope.users = data.users;
+			$scope.pageCount = parseInt(data.pages);
+			$scope.loading = false;
 		});
 	}
-	
-	$scope.fileUpload=false;
-	
+
+	$scope.getUsers();
+
+	$scope.goToUserPage = function (user) {
+		var userId = user.userid;
+		$location.path("/users/" + userId);
+	}
+
+	$scope.goToActiveTab = function () {
+		$scope.pageIndex = 0;
+		$scope.userStatus = 1;
+		$scope.getUsers();
+	}
+
+	$scope.goToInactiveTab = function () {
+		$scope.pageIndex = 0;
+		$scope.userStatus = 0;
+		$scope.getUsers();
+	}
+
+	$scope.pageUp = function () {
+		if ($scope.pageIndex < $scope.pageCount) {
+			$scope.loading=true;
+			$scope.pageIndex++;
+		} else {
+			return;
+		}
+		$scope.getUsers();
+	}
+
+	$scope.pageDown = function () {
+		if ($scope.pageIndex > 0) {
+			$scope.loading=true;
+			$scope.pageIndex--;
+		} else {
+			return;
+		}
+		$scope.getUsers();
+	}
+
 });

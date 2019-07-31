@@ -1,21 +1,23 @@
 <div>
     <portal-navbar></portal-navbar>
     <div class="container">
-        <div class="input-wrap">
-            <input type="text" class="user-search" placeholder="חיפוש משתמש" ng-model="search"
-                ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?getUsers():'';">
-        </div>
-        <!-- <div>
-            <input type="text" class="form-input search-bar" placeholder="חיפוש עובד" ng-model="search"
-                ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?refreshResults():'';">
-            <div class="clickable search-button" ng-click="pageIndex=0; refreshResults();"><i class="fa fa-search"
-                    aria-hidden="true"
-                    ng-click="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?refreshResults():'';"></i>
+        <div class="row">
+            <div class="input-wrap my-3 col-8">
+                <input type="text" class="user-search" placeholder="חיפוש משתמש" ng-model="search"
+                    ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?getUsers():'';">
             </div>
-        </div> -->
-        <!-- <page-navigator page-count="pageCount" page-index="pageIndex" go-to-page="goToPage" loading="loading">
-        </page-navigator> -->
-        <div>
+            <div class="users-pagination my-4 col-4">
+                <div class="page-nav">
+                    <span ng-click="pageDown()"><img src="img\arrow_right.png"></span>
+                    <span></span> {{pageIndex+1}} <span></span>
+                    <span ng-click="pageUp()"><img src="img\arrow_left.png"></span>
+                </div>
+            </div>
+        </div>
+        <div ng-show="loading">טוען...
+            <div class="spinner-border"></div>
+        </div>
+        <div ng-hide="loading">
             <table class="table-users">
                 <thead class="thead-users">
                     <tr>
@@ -33,25 +35,14 @@
                 </tbody>
             </table>
         </div>
-        <!-- <page-navigator page-count="pageCount" page-index="pageIndex" go-to-page="goToPage" loading="loading">
-        </page-navigator>
-        <div class="card-controls" ng-if="usertype=='admin'">
-            <button type="button" class="button card-control commit-card-edit" ng-click="addStaff()">
-                הוספת עובד <img src="./img/icon-add.png" />
-            </button>
-            <button type="button" class="button file-upload-button card-control">
-                <label for="staff-import">ייבוא עובדים <i class="fa fa-upload"></i></label>
-                <input id="staff-import" type="file" accept=".csv,.xlsx" ngf-select="onFileSelect($files)">
-            </button>
-        </div> -->
-        <!-- Nav tabs -->
-        <!-- <ul class="nav nav-tabs" ng-init="tabindex='activetable'">
-            <li class="clickable" ng-class="{active:staffStatus==1}"><a ng-click="goToActiveTab();">פעילים</a>
-            </li>
-            <li class="clickable" ng-class="{active:staffStatus==0}"><a ng-click="goToInactiveTab();">לא
-                    פעילים</a>
-            </li>
-        </ul> -->
+        <div class="row fixed-tabs d-flex align-items-center">
+            <div class="col-6 users-tabs" ng-class="{active:staffStatus==1}">
+                <a ng-click="goToActiveTab();">פעילים</a>
+            </div>
+            <div class="col-6 users-tabs" ng-class="{active:staffStatus==0}">
+                <a ng-click="goToInactiveTab();"> לא פעילים</a>
+            </div>
+        </div>
     </div>
 </div>
 </div>

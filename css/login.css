@@ -34,6 +34,7 @@
 
 .login-relative {
     position: relative;
+    
 }
 
 .login-abs {
@@ -59,7 +60,7 @@
 
 .login-grow {
     flex-grow: 1; 
-    padding-bottom: 50px;
+    padding-bottom: 75px;
 }
 
 .form-control2 {
@@ -91,3 +92,30 @@ div > a {
     text-align: left;
     font-size: 1.3em;
 }
+
+.img-logo {
+    margin-left: 12px;
+}
+
+strong {
+    font-size: 20px;
+    color: #ffa1a1;
+    }
+
+div.alert {
+position: fixed;
+width: 100vw;
+height: 99px;
+margin-bottom: 0;
+bottom: 0;
+background-color: #ffffff;
+}
+
+.login-span {
+    font-size: 35.2px;
+    color: #5d5d5d;
+    position: absolute;
+    top: -10px; 
+    left: 15px; 
+    }
+
