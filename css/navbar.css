@@ -276,18 +276,17 @@
 	  letter-spacing: 1em;
 			  transform: translateZ(400px);
 	  opacity: 0;
-	  height: 0px;
+	  max-height: 0px;
 	  overflow: hidden;
 	}
 	40% {
 	  opacity: 0.6;
-	  
 	  overflow: hidden;
 	}
 	100% {
 			  transform: translateZ(0);
 	  opacity: 1;
-	  height: 130px;
+	  max-height:200px ;
 	  overflow: hidden;
 	}
   }
@@ -302,7 +301,7 @@
 	0% {
 		transform: translateZ(0);
 		opacity: 1;
-		height: 130px;
+		max-height: 200px;
 		overflow: hidden;
 	}
 
@@ -314,7 +313,7 @@
 		letter-spacing: 1em;
 		transform: translateZ(300px);
 		opacity: 0;
-		height: 0px;
+		max-height: 0px;
 		overflow: hidden;
 	}
 }
