@@ -19,8 +19,8 @@
         for now search will be active when click on enter and not on every change
         ng-change="pageIndex=0;refreshResults();"
     -->
-    <div ng-if="loading">טוען...</div>
-    <uib-accordion close-others="true">
+    <div ng-show="loading">טוען...</div>
+    <uib-accordion ng-show="!loading" close-others="true">
 
         <div uib-accordion-group class="panel-default" is-open="reporterHeaderOpen"    
             ng-repeat="($reporterIndex, reporter) in (allreporters | orderBy:'firstname') track by reporter.userid">
@@ -64,12 +64,83 @@
                 </div>
             </div>
             <div ng-repeat="($index, rep)  in reporter.reports track by $index">
-                    <p>The body of the uib-accordion group grows to fit the contents</p>
-            </div>
-            
-            
-        </div>
+                <div class="row">
+                    <div class="d-flex mr-auto">
+                        <div>
+                            <label class="radio-container-reject radio-container">דחה
+                                <div>
+                                    <input type="radio" ng-value="-1" ng-model="rep.approval" name="radioStatus{{'_' + $index }}">
+                                    <span ng-class="{'checkmark': true, 'checkmark-reject': rep.approval==-1}"
+                                    ng-click="RejectRows([rep], reporter);"></span>
+                                </div>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="radio-container radio-container-unapproved">ממתין
+                                <div>
+                                    <input type="radio" ng-value="0" ng-model="rep.approval" name="radioStatus{{'_' + $index }}">
+                                    <span ng-class="{'checkmark': true, 'checkmark-unapproved': rep.approval==0}"
+                                    ng-click="UnapproveRows([rep], reporter);"></span>
+                                </div>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="radio-container radio-container-approved">אשר
+                                <div>
+                                    <input type="radio" ng-value="1" ng-model="rep.approval" name="radioStatus{{'_' + $index }}">
+                                    <span ng-class="{'checkmark': true, 'checkmark-approved': rep.approval==1}"
+                                    ng-click="ApproveRows([rep], reporter);"></span>
+                                </div>
+                            </label>
+                        </div> 
+                    </div>
+                </div>
+                <div class="rep-container" ng-class="{'rep-container-rejected': rep.approval==-1, 'rep-container-unapproved': rep.approval==0, 
+                                'rep-container-approved': rep.approval==1}">
+                        <div class="row rep-title">
+                            <div class="ml-auto">
+                                <input class="rep-checked" type="checkbox" ng-model="rep.choose" name="repCheckStatus{{'_' + $index }}">
+                                <span>
+                                    תאריך: {{rep.date}}    
+                                </span>
+                                <span>
+                                    סה"כ שעות: {{rep.hours}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="rep-sub-title">
+                                    פרוייקט
+                                </div>
+                                <div class="rep-data">
+                                    {{ getReportersProjectNameById(reporter, rep.projectid) }}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="rep-sub-title">
+                                    מס/ שם קורס
+                                </div>
+                                <div class="rep-data">
+                                    <!-- {{ rep.courseid==''?'כללי':rep.courseid }} -->
+                                    {{ getReportersCourseNameById(getReportersProjectCoursesById(reporter, rep.projectid), rep.courseid) }}
 
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="rep-sub-title">
+                                    נושא פעילות
+                                </div>
+                                <div class="rep-data">
+                                    <!-- {{ rep.actionid }} -->
+                                    {{ getReportersActionNameById(getReportersProjectActionsById(reporter, rep.projectid), rep.actionid) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+            </div>            
+        </div>
     </uib-accordion>
 
 </div>
