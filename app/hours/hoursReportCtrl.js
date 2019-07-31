@@ -72,4 +72,25 @@ app.controller("hoursReportCtrl", function ($scope, server) {
     };
     $scope.GetReportingPerimeter();
 
+    $scope.sumHours = function ()
+    {
+        var sum = 0;
+        for (var i=0; i<$scope.reports.length; i++)
+        {
+            if($scope.reports[i].hours)
+            {
+                sum+=timeStringToAmount($scope.reports[i].hours);
+            }
+        }
+        return sum;
+    }
+
+    function timeStringToAmount(timeString)
+    {
+        var hoursMinutes = timeString.split(":");
+        var hours = parseInt(hoursMinutes[0]);
+        var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1]) : 0;
+        return hours + minutes / 60;
+    }
+
 });
