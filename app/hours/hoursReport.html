@@ -1,9 +1,10 @@
 <div>
-    <portal-navbar></portal-navbar>
-
-    <div class="container">
+    <div class="container hours-report">
+        <portal-navbar></portal-navbar>
         <month-scroll></month-scroll>
-      
+        <div class="hours-sum">
+            {{loading?"...":('סה"כ שעות: '+sumHours())}}
+        </div>
     </div>
 
 </div>

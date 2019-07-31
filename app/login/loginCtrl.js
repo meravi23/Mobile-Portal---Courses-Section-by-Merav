@@ -32,7 +32,11 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, server) {
 			}
 			else $scope.error_password=true;
         });
-    }
+	}
+	
+	$scope.hideError= function() {
+		$scope.error_password=false;
+	}
 
 	// var waitingForServer=false;
 	// $scope.forgotPass={};

@@ -10,8 +10,8 @@
                 <div class="login-abs" ng-hide="email">אימייל</div>
             </div>
             <div class="form-group login-relative">
-                <input type="password" class="form-control rounded-pill login-credentials" name="" id="pwd" ng-model="pass"
-                ng-class="{'login-white-bg' : pass}">
+                <input type="password" class="form-control rounded-pill login-credentials" name="" id="pwd"
+                    ng-model="pass" ng-class="{'login-white-bg' : pass}">
                 <div class="login-abs" ng-hide="pass">סיסמה</div>
             </div>
             <div class="form-group login-relative login-login">
@@ -21,6 +21,10 @@
             <div>
                 <a href="">שכחתי סיסמה</a>
             </div>
+            <div class="alert alert-danger d-flex" role="alert" ng-show="error_password">
+              <div class="align-self-center"><img class="img-logo" src="img\login\noun_error_1156903.png"><strong> אימייל או סיסמה שגויים</strong></div>
+                <span class="login-span" ng-click="hideError()">&times;</span>
+              </div>
         </div>
     </form>
 
