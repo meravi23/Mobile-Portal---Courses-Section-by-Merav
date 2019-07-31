@@ -1,4 +1,4 @@
-<div>
+<div ng-show="course">
     <portal-navbar></portal-navbar>
     <div class="container">
         <div class="row sub-header">
@@ -19,93 +19,160 @@
                 <h6 class="full-name">{{course.name}}</h6>
             </div>
         </div>
+    </div>
 
-        <!-- Tabs -->
-        <section id="tabs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 ">
-                        <nav>
-                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
-                                    role="tab" aria-controls="nav-home" aria-selected="true">קורס</a>
-                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
-                                    role="tab" aria-controls="nav-profile" aria-selected="false">סילבוס</a>
-                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
-                                    role="tab" aria-controls="nav-contact" aria-selected="false">סטודנטים</a>
-                                <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about"
-                                    role="tab" aria-controls="nav-about" aria-selected="false">מדריכים</a>
-                            </div>
-                        </nav>
-                        <div class="tab-content px-3 px-sm-0" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                aria-labelledby="nav-home-tab">
-                                <div class="row crs-row crs-top-row">
-                                    <div class="col-12">
-                                        <div class="crs-field-header">שם קורס מלא </div>
-                                        <div class="crs-field">{{course.name}}</div>
-                                    </div>
-                                </div>
-                                <div class="row crs-row">
-                                    <div class="col-6">
-                                        <div class="crs-field-header">שם קורס מקוצר בעברית </div>
-                                        <div class="crs-field">{{course.subname}}</div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="crs-field-header">שם קורס מקוצר בערבית </div>
-                                        <div class="crs-field">{{course.subnameinarabic}}</div>
-                                    </div>
-                                </div>
-                                <div class="row crs-row">
-                                    <div class="col-12">
-                                        <div class="crs-field-header">פרויקט</div>
-                                        <div class="crs-field">{{course.projectid}}</div>
-                                    </div>
-                                </div>
-                                <div class="row crs-row">
-                                    <div class="col-12">
-                                        <div class="crs-field-header">תגיות</div>
-                                        <div class="crs-field">+</div>
-                                    </div>
-                                </div>
-                                <div class="row crs-row">
-                                    <div class="col-6">
-                                        <div class="crs-field-header">עיר</div>
-                                        <div class="crs-field">{{course.cityid}}</div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="crs-field-header">שנת תקציב</div>
-                                        <div class="crs-field">{{course.yearbudgetid}}</div>
-                                    </div>
-                                </div>
-                                <div class="row crs-row">
-                                    <div class="col-12">
-                                        <div class="crs-field-header">מדריך</div>
-                                        <div class="crs-field">{{course.primaryTeacherName}}</div>
-                                    </div>
+    <!-- Tabs -->
+    <section id="tabs">
+        <div>
+            <uib-tabset active="activeJustified" justified="true">
+                <uib-tab index="0" heading="קורס">
+                    <div class="tab-content px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <div class="row crs-row crs-top-row">
+                                <div class="col-12">
+                                    <div class="crs-field-header">שם קורס מלא </div>
+                                    <div class="crs-field">{{course.name}}</div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                aria-labelledby="nav-profile-tab">
-                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui
-
+                            <div class="row crs-row">
+                                <div class="col-6">
+                                    <div class="crs-field-header">שם קורס מקוצר בעברית </div>
+                                    <div class="crs-field">{{course.subname}}</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="crs-field-header">שם קורס מקוצר בערבית </div>
+                                    <div class="crs-field">{{course.subnameinarabic}}</div>
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                aria-labelledby="nav-contact-tab">
-                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui
-
+                            <div class="row crs-row">
+                                <div class="col-12">
+                                    <div class="crs-field-header">פרויקט</div>
+                                    <div class="crs-field">{{course.projectid}}</div>
+                                    <!-- TODO: take project name function from hour reports -->
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui
-
+                            <div class="row crs-row">
+                                <div class="col-12">
+                                    <div class="crs-field-header">תגיות</div>
+                                    <div class="crs-field">+</div>
+                                </div>
+                            </div>
+                            <div class="row crs-row">
+                                <div class="col-6">
+                                    <div class="crs-field-header">עיר</div>
+                                    <div class="crs-field">{{course.cityid}}</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="crs-field-header">שנת תקציב</div>
+                                    <div class="crs-field">{{course.yearbudgetid}}</div>
+                                </div>
+                            </div>
+                            <div class="row crs-row">
+                                <div class="col-12">
+                                    <div class="crs-field-header">מדריך</div>
+                                    <div class="crs-field">{{course.primaryTeacherName}}</div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-        </section>
+                </uib-tab>
 
+                <uib-tab index="1" heading="סילבוס">
+                    <div class="tab-content px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel">
+                            <div class="row crs-row crs-top-row">
+                                <div class="col-12">
+                                    <div class="crs-field-header">שם נושא</div>
+                                    <div class="crs-field">שם נושא</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    </div>
+                    <!-- TODO: border between tabs, upper shadow -->
+                    <div class="row fixed-tabs d-flex align-items-center">
+                        <div class="col-4 course-tabs crs-border" ng-class="{active:courseStatus==1}">
+                            <a ng-click="goToActiveTab();">הוסף נושא</a>
+                        </div>
+                        <div class="col-4 course-tabs crs-border" ng-class="{active:courseStatus==0}">
+                            <a ng-click="goToInactiveTab();">העלה סילבוס</a>
+                        </div>
+                        <div class="col-4 course-tabs" ng-class="{active:courseStatus==0}">
+                            <a ng-click="goToInactiveTab();">ריקון סילבוס</a>
+                        </div>
+                    </div>
+                </uib-tab>
+
+                <uib-tab index="2" heading="סטודנטים">
+                    <div class="tab-content px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel">
+                            <div class="row crs-row crs-top-row">
+                                <div class="input-wrap">
+                                    <input type="text" class="user-search" placeholder="חיפוש חניך" ng-model="search"
+                                        ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?getUsers():'';">
+                                </div>
+                                <div>
+                                    <table class="table-users">
+                                        <thead class="thead-users">
+                                            <tr>
+                                                <th class="th-users">שם</th>
+                                                <th class="th-users">שם משפחה</th>
+                                                <th class="th-users">אימייל</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="tr-users" ng-click="goToUserPage(user)"
+                                                ng-repeat="user in users">
+                                                <td class="td-users small-cell">{{user.firstname}}</td>
+                                                <td class="td-users small-cell">{{user.lastname}}</td>
+                                                <td class="td-users large-cell">{{user.email}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row fixed-tabs d-flex align-items-center">
+                                <div class="col-12 course-tabs" ng-class="{active:courseStatus==1}">
+                                    <a ng-click="goToActiveTab();">הוסף סטודנט</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+
+                <uib-tab index="3" heading="מדריכים">
+                    <div class="tab-content px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel">
+                            <div class="row crs-row crs-top-row">
+                                <div class="input-wrap">
+                                    <input type="text" class="user-search" placeholder="חיפוש מדריך" ng-model="search"
+                                        ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?getUsers():'';">
+                                </div>
+                                <div>
+                                    <table class="table-users">
+                                        <thead class="thead-users">
+                                            <tr>
+                                                <th class="th-users">שם</th>
+                                                <th class="th-users">שם משפחה</th>
+                                                <th class="th-users">אימייל</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="tr-users" ng-click="goToUserPage(user)"
+                                                ng-repeat="user in users">
+                                                <td class="td-users small-cell">{{user.firstname}}</td>
+                                                <td class="td-users small-cell">{{user.lastname}}</td>
+                                                <td class="td-users large-cell">{{user.email}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </section>
 </div>
