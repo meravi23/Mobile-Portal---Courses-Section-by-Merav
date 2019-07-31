@@ -311,3 +311,10 @@
 		opacity: 0;
 	}
 }
+
+.hamburger-nav {
+	margin: auto;
+	/* height: 30px; */
+	font-size: 25px;
+	color: #5d5d5d;
+}
