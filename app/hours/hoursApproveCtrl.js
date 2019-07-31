@@ -224,4 +224,71 @@ app.controller("hoursApproveCtrl", function($scope, server) {
         }
     }
 
+    $scope.ApproveRows = function(reps, reporter)
+    {   
+        if (reps.approval == 1){
+            // nothing to do - it is already approved
+            return;
+        }
+        SetReportApproval(reps, 1, reporter)
+    }
+    $scope.UnapproveRows = function(reps, reporter)
+    {
+        SetReportApproval(reps, 0, reporter)
+    }
+    $scope.RejectRows = function(reps, reporter)
+    {
+        SetReportApproval(reps, -1, reporter)
+
+    }
+    function SetReportApproval(reps, reportStatus, reporter)
+    {
+
+        var reportids=getColumnInArray(reps, "reportid");
+        var data = {'reportids' : reportids, 'status' : reportStatus, 'checkdate2':true};
+        //var data = {'reportids' : reportids, 'status' : reportStatus};
+        server.requestPhp(data, 'SetReportApproval').then(function(data) {
+            if(data&&!data.error)
+            {
+                //console.log(data);
+                for (var i=0; i<reps.length; i++)
+                {
+                    reps[i].approval = reportStatus;
+                    reps[i].checkdate = data;
+                    reps[i].status2=true;
+                }
+                $scope.calculateHoursSummary(reporter);
+                if(data === true)
+                    alert("נשמר בהצלחה");
+                else if(data === "no ids supplied")
+                    alert("יש לבחור רשומות תחילה");
+            }
+            else
+            {
+                alert("הפעולה לא הצליחה - נא לפנות לנטלי מזרחי או לדניאל סעאת ולדווח להם על הבעיה.");
+            }
+        });
+        unCheckRows(reps,reporter);
+    }
+
+    function unCheckRows(reps,reporter)
+    {
+        for (var i=0; i<reps.length; i++)
+        {
+            if(reps[i]["choose"])
+                reps[i]["choose"]=!reps[i]["choose"];
+            if(reporter.chooseAll)
+                reporter.chooseAll=!reporter.chooseAll;
+        }
+    }
+
+    function getColumnInArray(arr, colName)
+    {
+        var res = [];
+        for (var i=0; i<arr.length; i++)
+        {
+            res.push(arr[i][colName])
+        }
+        return res;
+    }
 });

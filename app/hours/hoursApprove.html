@@ -69,24 +69,27 @@
                         <div>
                             <label class="radio-container-reject radio-container">דחה
                                 <div>
-                                    <input type="radio" ng-value="-1" ng-model="reporterStatus" name="radioStatus{{'_' + $index }}">
-                                    <span ng-class="{'checkmark': true, 'checkmark-reject': reporterStatus==-1}"></span>
+                                    <input type="radio" ng-value="-1" ng-model="rep.approval" name="radioStatus{{'_' + $index }}">
+                                    <span ng-class="{'checkmark': true, 'checkmark-reject': rep.approval==-1}"
+                                    ng-click="RejectRows([rep], reporter);"></span>
                                 </div>
                             </label>
                         </div>
                         <div>
                             <label class="radio-container radio-container-unapproved">ממתין
                                 <div>
-                                    <input type="radio" ng-value="0" ng-model="reporterStatus" name="radioStatus{{'_' + $index }}">
-                                    <span ng-class="{'checkmark': true, 'checkmark-unapproved': reporterStatus==0}"></span>
+                                    <input type="radio" ng-value="0" ng-model="rep.approval" name="radioStatus{{'_' + $index }}">
+                                    <span ng-class="{'checkmark': true, 'checkmark-unapproved': rep.approval==0}"
+                                    ng-click="UnapproveRows([rep], reporter);"></span>
                                 </div>
                             </label>
                         </div>
                         <div>
                             <label class="radio-container radio-container-approved">אשר
                                 <div>
-                                    <input type="radio" ng-value="1" ng-model="reporterStatus" name="radioStatus{{'_' + $index }}">
-                                    <span ng-class="{'checkmark': true, 'checkmark-approved': reporterStatus==1}"></span>
+                                    <input type="radio" ng-value="1" ng-model="rep.approval" name="radioStatus{{'_' + $index }}">
+                                    <span ng-class="{'checkmark': true, 'checkmark-approved': rep.approval==1}"
+                                    ng-click="ApproveRows([rep], reporter);"></span>
                                 </div>
                             </label>
                         </div> 
