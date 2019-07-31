@@ -27,7 +27,8 @@
 <div>
 
     <div>
-        <i class="fas fa-bars" ng-click="openSide()"></i>
+        <i class="fas fa-bars hamburger-nav" ng-click="openSide()"></i>
+        <span>אישור שעות</span>
     </div>
 
     <div ng-class="{'sidebar-open' : isOpen}">
@@ -56,16 +57,16 @@
                             </li>
                         </div>
 
-                        <div class="users-nav" ng-click="usermanuclick()">
+                        <div class="users-nav" ng-click="usermenuclick()">
                             <img src="img/noun_user_user_1064877.png" alt="">
                             <li class="nav-item">
                                 <a class="nav-link menu-information">משתמשים</a>
                             </li>
-                            <img class="arrowbardown" src="img/arrow_down.png" ng-show="usermanu" alt="arrow_down" ng-class="{'flip-scale-up-hor' : usermanu}">
-                            <img class="arrowbarup" src="img/arrow_up.png" ng-hide="usermanu" alt="arrow_up" ng-class= "{'flip-scale-down-hor' : !usermanu}">
+                            <img class="arrowbardown" src="img/arrow_down.png" ng-show="usermenu" alt="arrow_down" ng-class="{'flip-scale-up-hor' : usermenu}">
+                            <img class="arrowbarup" src="img/arrow_up.png" ng-hide="usermenu" alt="arrow_up" ng-class= "{'flip-scale-down-hor' : !usermenu}">
                         </div>
 
-                        <div ng-show="usermanu" class="animate-show" ng-class="{'animate-hide' : !usermanu}" >
+                        <div ng-show="usermenu" class="animate-show" ng-class="{'animate-hide' : !usermenu}" >
                             <li class="nav-item">
                                 <a class="nav-link menu-information" href="#!/users">עובדים</a>
                             </li>
