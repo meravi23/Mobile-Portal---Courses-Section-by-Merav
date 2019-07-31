@@ -114,7 +114,7 @@
                                     פרוייקט
                                 </div>
                                 <div class="rep-data">
-                                    {{ rep.projectid }}
+                                    {{ getReportersProjectNameById(reporter, rep.projectid) }}
                                 </div>
                             </div>
                             <div class="col">
@@ -122,7 +122,9 @@
                                     מס/ שם קורס
                                 </div>
                                 <div class="rep-data">
-                                    {{ rep.courseid==''?'כללי':rep.courseid }}
+                                    <!-- {{ rep.courseid==''?'כללי':rep.courseid }} -->
+                                    {{ getReportersCourseNameById(getReportersProjectCoursesById(reporter, rep.projectid), rep.courseid) }}
+
                                 </div>
                             </div>
                             <div class="col">
@@ -130,7 +132,8 @@
                                     נושא פעילות
                                 </div>
                                 <div class="rep-data">
-                                    {{ rep.actionid }}
+                                    <!-- {{ rep.actionid }} -->
+                                    {{ getReportersActionNameById(getReportersProjectActionsById(reporter, rep.projectid), rep.actionid) }}
                                 </div>
                             </div>
                         </div>
