@@ -31,10 +31,10 @@
 
 	$scope.goToUserPage = function(user)
 	{
-		var userId = user.id;
+		var userId = user.userid;
 		$location.path("/users/" + userId);
 	}
 	
-	$scope.fileUpload=false;
+	// $scope.fileUpload=false;
 	
 });
