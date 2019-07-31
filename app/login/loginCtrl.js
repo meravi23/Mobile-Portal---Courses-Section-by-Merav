@@ -1,17 +1,19 @@
 app.controller('loginCtrl', function ($rootScope, $scope, $location, server) {
 
-    $scope.error_password=false;
+	$scope.error_password=false;
+	$scope.missing_credential=false;
 	$scope.login = function () {
 		if(!$scope.pass||!$scope.email)
 		{
-			alert("נא להזין פרטי משתמש");
-			return;
+			 $scope.missing_credential = true;
+			// alert("נא להזין פרטי משתמש");
+			// return;
 		}
 		var data = {pass: $scope.pass, email: $scope.email};
         server.requestPhp(data, "login").then(function (data) {
-			if (data['error']) {
-				alert(data['error']);
-			}
+			// if (data['error']) {
+			// 	alert(data['error']);
+			// }
         	if (data['token']) {
 				$rootScope.userToken = data['token'];
 				$rootScope.isAdmin = data['isAdmin']==1;
@@ -36,6 +38,7 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, server) {
 	
 	$scope.hideError= function() {
 		$scope.error_password=false;
+		$scope.missing_credential=false;
 	}
 
 	// var waitingForServer=false;

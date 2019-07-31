@@ -22,9 +22,15 @@
                 <a href="">שכחתי סיסמה</a>
             </div>
             <div class="alert alert-danger d-flex" role="alert" ng-show="error_password">
-              <div class="align-self-center"><img class="img-logo" src="img\login\noun_error_1156903.png"><strong> אימייל או סיסמה שגויים</strong></div>
+                <div class="align-self-center"><img class="img-logo" src="img\login\noun_error_1156903.png"><strong>
+                        אימייל או סיסמה שגויים</strong></div>
                 <span class="login-span" ng-click="hideError()">&times;</span>
-              </div>
+            </div>
+            <div class="alert alert-danger d-flex" role="alert" ng-show="missing_credential">
+                <div class="align-self-center"><img class="img-logo" src="img\login\noun_error_1156903.png"><strong>נא
+                        להזין פרטי משתמש</strong></div>
+                <span class="login-span" ng-click="hideError()">&times;</span>
+            </div>
         </div>
     </form>
 
