@@ -1,4 +1,4 @@
-app.controller("monthScrollCtrl", function($scope) {
+app.controller("hoursReportMonthScrollCtrl", function($scope) {
 
     $scope.months={
         "1":"ינואר",
@@ -15,8 +15,7 @@ app.controller("monthScrollCtrl", function($scope) {
         "12":"דצמבר"
     };
     
-    const rowsPerPage = 15;
-
+    
     $scope.month = "";
     $scope.year = "";
     $scope.monthindex = "";
@@ -37,6 +36,7 @@ app.controller("monthScrollCtrl", function($scope) {
     }
 
     $scope.GetCurrentDate();
+    $scope.GetReports();
 
     $scope.goLeft = function()
     {
