@@ -39,7 +39,7 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, server) {
 
 	$scope.hideError = function () {
 		$scope.error_password = false;
-		$scope.missing_credential = false;
+	
 	}
 
 	// var waitingForServer=false;
