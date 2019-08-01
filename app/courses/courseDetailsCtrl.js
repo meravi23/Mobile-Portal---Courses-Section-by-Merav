@@ -1,5 +1,6 @@
-app.controller("courseDetailsCtrl", function ($scope, $location, server) {
-    $scope.courseid = ($location.path()).substr(9);
+app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeParams) {
+    // $scope.courseid = ($location.path()).substr(9);
+    $scope.courseid =$routeParams.id;
     console.log("Course ID: " + $scope.courseid);
 
     $scope.getCourse = function () {
@@ -7,6 +8,7 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server) {
         data.courseid = $scope.courseid;
         server.requestPhp(data, 'GetCourseById').then(function (data) {
             $scope.course = data;
+            
             console.log($scope.course);
 
             //an array keeping a list of subjects that should be deleted once course id is saved
