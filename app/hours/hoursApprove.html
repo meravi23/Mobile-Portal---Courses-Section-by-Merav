@@ -16,10 +16,10 @@
     <div ng-show="loading">טוען...</div>
     <uib-accordion ng-if="!loading" close-others="true">
 
-        <div uib-accordion-group class="panel-default" is-open="reporterHeaderOpen"    
+        <div uib-accordion-group class="panel-default wh-report-panel-default" is-open="reporterHeaderOpen"    
             ng-repeat="($reporterIndex, reporter) in (allreporters | orderBy:'firstname') track by reporter.userid">
             <uib-accordion-heading>
-                <div class="row justify-content-between">
+                <div class="row wh-approve-row justify-content-between">
                     <div class="reporter-title ml-auto">
                         {{ reporter.firstname + ' ' + reporter.lastname }}
                     </div>
@@ -37,7 +37,7 @@
                     </div>                
                 </div>
             </uib-accordion-heading>
-            <div class="row" ng-show="reporter.reports.length !=0">
+            <div class="row wh-approve-row wh-approve-row-int" ng-show="reporter.reports.length !=0">
                 <div class="d-flex report-selection-button-action">
                     <div class="row-selection-indicator" ng-class="{'checked-row':reporter.chooseAll, 'unchecked-row':!reporter.chooseAll}" ng-click="chooseAll(reporter)">
                     </div>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div ng-repeat="($index, rep)  in reporter.reports track by $index">
-                <div class="row">
+                <div class="row wh-approve-row wh-approve-row-int">
                     <div class="d-flex mr-auto">
                         <div>
                             <label class="radio-container-reject radio-container">דחה
@@ -90,7 +90,7 @@
                 </div>
                 <div class="rep-container" ng-class="{'rep-container-rejected': rep.approval==-1, 'rep-container-unapproved': rep.approval==0, 
                                 'rep-container-approved': rep.approval==1}">
-                        <div class="row rep-title">
+                        <div class="row wh-approve-row wh-approve-row-int rep-title">
                             <div class="ml-auto">
                                 <input class="rep-checked" type="checkbox" ng-model="rep.choose" name="repCheckStatus{{'_' + $index }}">
                                 <span>
@@ -105,7 +105,7 @@
 
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row wh-approve-row wh-approve-row-int">
                             <div class="col">
                                 <div class="rep-sub-title">
                                     פרוייקט

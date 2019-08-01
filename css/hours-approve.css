@@ -35,11 +35,11 @@
 
 }
 
-.panel-default a:hover {
+.wh-report-panel-default a:hover {
     text-decoration: none;
 }
 
-.panel-default.card {
+.wh-report-panel-default.card {
     border-style: none;
 }
 
@@ -54,7 +54,7 @@
     margin-top: 25px;
 }
 
-.panel-default > .card-header {
+.wh-report-panel-default > .card-header {
     background-color: #ffffff;
 }
 
@@ -62,7 +62,7 @@
     font-family: 'Assistant-SemiBold';
     font-size: 18px;
     color: #5d5d5d;
-    margin-right: 19px;
+    /* margin-right: 19px; */
 }
 
 
@@ -91,7 +91,7 @@
 
 .reporter-header-arrow {
     margin-right: 35px;
-    margin-left: 13px;
+    /* margin-left: 13px; */
 }
 
 .row-selection-indicator{
@@ -287,17 +287,31 @@
   }
 
   .rep-title > div > span {
-    margin-right: 30px;
+    margin-right: 29px;
+  }
+
+  .rep-title > div > span:last-child {
+    margin-right: 14px;
   }
 
   .rep-title > div > input {
-    margin-right: 5px;
+    /* margin-right: 5px; */
+    margin-top: 10px;
   }
 
   .wh-approve-row {
-      margin: 0;
+      margin-right: 0;
+      margin-left: 0;
   }
 
-  .panel-default > div > .card-body {
+  .wh-approve-row-int {
+    padding-right: 16px;
+  }
+
+  .wh-approve-row-int > .col {
+    padding-right: 0;
+  }
+
+  .wh-report-panel-default > div > .card-body {
   padding: 0;
 }
