@@ -1,5 +1,9 @@
 .hours-report {
     font-family: "Assistant-Regular";
+    /* disable the padding of the container */
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 12px;
 }
 
 .hours-sum {
@@ -10,17 +14,47 @@
 
 .hour-report-table {
     margin-top: 10px;
-    margin-right: 10px;
     text-align: center;
     }
 
-.hour-report-table{   
-    padding-right: 0;
-}
 
 .th-hour-report{
-    font-size: 12px;
-    font-family:"Assistant-SemiBold"; 
+    font-size: 10px;
+    font-family:"Assistant-Bold"; 
     color: #5d5d5d;
-    line-height: 42px;
+    /*line-height: 42px;*/
+}
+
+.tr-hour-report {
+    
+}
+
+.table-hour-report {
+    border-collapse:separate; 
+    border-spacing:0 15px;
+}
+
+.th-hour-report-date {
+    width: 15%;
+
+}
+
+.th-hour-report-project {
+    width: 35%;
+}
+
+.th-hour-report-activity {
+
+    width: 30%;
+}
+
+.th-hour-report-total {
+    width: 20%;
+}
+
+.wh-report-cell {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
