@@ -1,248 +1,313 @@
 .courses {
-	position: relative;
-	z-index: 0;
-}
-
-.courses-container {
-	padding-right: 10px;
+    position: relative;
+    z-index: 0;
 }
 
 .input-wrap {
-	width: 80vw;
-	margin: auto;
-	background-color: #26bcbcbc;
-	height: 12vw;
-	border-radius: 94px;
-	padding: 3%;
-	box-sizing: border-box;
-	margin-bottom: 5%;
-	direction: ltr;
-}
-
-.crs-margin-right {
-	margin-right: 5px;
+    width: 80vw;
+    margin: auto;
+    background-color: #26bcbcbc;
+    height: 12vw;
+    border-radius: 94px;
+    padding: 3%;
+    box-sizing: border-box;
+    margin-bottom: 5%;
+    direction: ltr;
 }
 
 .input-wrap input {
-	height: 100%;
-	width: 59vw;
-	background-color: transparent;
-	border: none;
-	font-size: 5vw;
-	color: white;
-	vertical-align: top;
-	margin-right: 14vw;
-	box-sizing: border-box;
-	font-family: 'Assistant', sans-serif;
-	padding: 0;
-	text-align: right;
+    height: 100%;
+    width: 59vw;
+    background-color: transparent;
+    border: none;
+    font-size: 5vw;
+    color: white;
+    vertical-align: top;
+    margin-right: 14vw;
+    box-sizing: border-box;
+    font-family: 'Assistant', sans-serif;
+    padding: 0;
+    text-align: right;
 }
 
 .input-wrap input::placeholder {
-	color: white
+    color: white
 }
 
 section .section-title {
-	text-align: center;
-	color: blue;
-	margin-bottom: 50px;
-	text-transform: uppercase;
+    text-align: center;
+    color: blue;
+    margin-bottom: 50px;
+    text-transform: uppercase;
 }
+
 
 /******************* uib-tabs *****************/
 
 form.tab-form-demo .tab-pane {
     margin: 20px 20px;
-  }
+}
 
-  /**********************************/
+
+/**********************************/
+
 
 #tabs {
-	color: #eee;
-	width: 100%;
-	margin: 0;
+    color: #eee;
+    width: 100%;
+    margin: 0;
 }
 
 #tabs h6.section-title {
-	color: #eee;
+    color: #eee;
 }
 
-#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-	color: #f3f3f3;
-	background-color: transparent;
-	border-color: transparent transparent #f3f3f3;
-	border-bottom: 4px solid !important;
-	font-size: 20px;
-	font-weight: bold;
+#tabs .nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: #f3f3f3;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 4px solid !important;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #tabs .nav-tabs .nav-link {
-	border: 1px solid transparent;
-	border-top-left-radius: .25rem;
-	border-top-right-radius: .25rem;
-	color: #1b166e;
-	font-size: 14px;
-	font-family: "Assistant-SemiBold";
-	line-height: 18px;
-	text-align: center;
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #1b166e;
+    font-size: 14px;
+    font-family: "Assistant-SemiBold";
+    line-height: 18px;
+    text-align: center;
 }
 
 #tabs ul {
-	padding-right: 0;
-}
-
-.crs-pad-right  {
-	padding-right: 0;
+    padding-right: 0;
 }
 
 .course-tabs a {
-	font-size: 15px;
-	color: black !important;	
+    font-size: 15px;
+    color: #5d5d5d !important;
 }
 
-.course-tabs .crs-border {
-	border-left: black solid 1px;
-} 
+.course-tabs {
+    border-left: 1px solid #bcbcbc;
+    height: 100%;
+    text-align: center;
+    padding: 27px 0;
+}
 
-.course-tabs .nav-tabs li {
-	display: inline;
-	text-align: center;
+.course-tabs:last-child {
+    border-left: none;
+}
+
+.crs-fixed-tabs {
+    position: fixed;
+    width: 100%;
+    height: 76px;
+    bottom: 0;
+    z-index: 5;
+    margin: auto;
+    background-color: #eee;
+    box-shadow: 0 -5px 5px -5px #333;
+}
+
+.crsactive {
+    font-weight: bold;
 }
 
 .courses-center {
-	text-align: center;
+    text-align: center;
 }
 
 .courses-bold {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .courses-input {
-	padding-right: 10px;
+    padding-right: 10px;
+}
+
+.crs-tabs {
+ 
 }
 
 .th-courses {
-	width: 33%;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: pre-line;
+    width: 33%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    padding-right: 29px;
 }
 
 .td-courses {
-	text-align: center;
-	height: 90px;
-	font-family: "Assistant-Regular";
-	width: 33%;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: pre-line;
-	line-height: 1.6;
+    text-align: center;
+    height: 90px;
+    font-family: "Assistant-Regular";
+    width: 33%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    line-height: 1.6;
+    padding-right: 5px;
 }
 
 .fixed-tabs {
-	position: fixed;
-	width: 100%;
-	height: 15%;
-	bottom: 0;
-	z-index: 5;
-	margin: auto;
-	background-color: #eee;
-	box-shadow: 0 -5px 5px -5px #333;
-}
-
-.fixed-tabs > .active {
-	font-weight: bold;
+    position: fixed;
+    width: 100%;
+    height: 15%;
+    bottom: 0;
+    z-index: 1;
+    margin: auto;
+    background-color: white;
 }
 
 ::placeholder {
-	font-family: "Assistant-Regular";
-	font-size: 20sp;
-	padding-right: 30px;
+    font-family: "Assistant-Regular";
+    font-size: 20sp;
+    padding-right: 30px;
 }
 
 .sub-header {
-	width: 360px;
-	height: 145px;
-	margin-top: 26px;
-	/*margin-top = 50-24*/
-	box-shadow: 0px 6px 3px -5px rgba(41, 0, 0, 0.15);
+    width: 360px;
+    height: 145px;
+    margin-top: 26px;
+    /*== 50-24*/
+    padding-right: 18px;
+    box-shadow: 0px 6px 3px -5px rgba(26, 0, 0, 0.5);
 }
 
 .sub-header-row {
-	height: 67px;
+    height: 67px;
 }
 
 .courses-header {
-	font-size: 28px;
-	font-family: "Assistant-SemiBold";
-	/* max-width: 125px; */
-	line-height: 30px;
-	color: #5d5d5d;
-	margin-top: 8px;
-	margin-right: 18px;
+    font-size: 28px;
+    font-family: "Assistant-SemiBold";
+    /* max-width: 125px; */
+    line-height: 30px;
+    color: #5d5d5d;
+    margin-top: 8px;
+    margin-right: 18px;
 }
 
 .courses-icon-row {
-	/* width: 249px; */
-	margin-top: 16.7px;
+    margin-top: 16.7px;
 }
 
 .sub-header-back {
-	height: 16.1px;
-	width: 22.4px;
-	margin-left: 33.5px;
-	margin-bottom: 112.2px;
+    height: 16.1px;
+    width: 22.4px;
+    margin-left: 20px;
+    margin-bottom: 112.2px;
 }
 
 .sub-header-copy {
-	height: 20.3px;
-	width: 18.5px;
-	margin-left: 33.5px;
-	margin-bottom: 108.1px;
+    height: 20.3px;
+    width: 18.5px;
+    margin-left: 20px;
+    margin-bottom: 108.1px;
 }
 
 .sub-header-save {
-	height: 20.1px;
-	width: 19.5px;
-	margin-left: 14px;
-	margin-bottom: 108.2px;
+    height: 20.1px;
+    width: 19.5px;
+    margin-left: 14px;
+    margin-bottom: 108.2px;
 }
 
 .courses-full-name {
-	height: 34px;
-	margin-right: 18px;
-	margin-bottom: 21px;
+    height: 34px;
+    margin-right: 18px;
+    margin-bottom: 21px;
 }
 
 .full-name {
-	font-family: "Assistant-Regular";
-	font-size: 10px;
-	margin-top: 36px;
+    font-family: "Assistant-Regular";
+    font-size: 10px;
+    margin-top: 36px;
 }
 
 .crs-row {
-	height: 58px;
-	margin-top: 12px;
-}
+    height: 58px;
+    margin-top: 12px;
+    margin-right: 0;
+    margin-left: 0;
+    box-shadow: 0 1px 1px 0 #0d000000;
+    border-bottom: 1px solid;
+   }
 
 .crs-top-row {
-	margin-top: 28.5px;
+    margin-top: 28.5px;
 }
 
-.crs-field-header, .crs-field {
-	font-size: 12px;
-	line-height: 15px;
-	color: #5d5d5d;
+.crs-field-header,
+.crs-field {
+    font-size: 12px;
+    line-height: 15px;
+    color: #5d5d5d;
 }
 
 .crs-field-header {
-	font-family: "Assistant-SemiBold";
+    font-family: "Assistant-SemiBold";
 }
 
 .crs-field {
-	font-family: "Assistant-Light";
+    font-family: "Assistant-Light";
+    margin-top: 8px;
 }
 
 .crs-margin {
-	margin-bottom: 25%;
+    margin-bottom: 25%;
 }
+
+.inactive {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+
+/*************dropdown down-arrow*************/
+
+
+/* TODO: fix arrow not showing */
+
+.crs-select {
+    display: block;
+    border: none;
+    background: url('img/arrow_down.png') no-repeat;
+}
+
+
+/* remove default arrow on ie10 and ie11 */
+
+
+/* .crs-select::-ms-expand { 
+    display: none; 
+} */
+
+
+/* target Internet Explorer 9 to undo the custom arrow */
+
+
+/* @media screen and (min-width:0\0) {
+    .crs-select {
+        background:none\9;
+        padding: 5px\9;
+    } 
+} */
+
+
+/* Firefox, Safari and Chrome */
+
+
+/* .crs-select {
+    -moz-appearance:none; 
+    -webkit-appearance:none; 
+    appearance:none;
+} */
+
+
+/********************************************/

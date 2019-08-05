@@ -1,39 +1,35 @@
 <div class="courses">
     <portal-navbar></portal-navbar>
-    <div class="courses-container">
+    <div class="container courses-container">
         <div class="container">
             <div class="row">
                 <div class="input-wrap my-3 col-8">
-                    <input class="courses-input" type="text" placeholder="חיפוש קורס" ng-model="search"
-                        ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?getCourses():'';">
+                    <input class="courses-input" type="text" placeholder="חיפוש קורס" ng-model="search" ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?getCourses():'';">
                 </div>
 
                 <div class="courses-center courses-bold my-4 col-4">
                     <div class="page-nav">
-                        <span ng-click="pageDown()"><img src="img\arrow_right.png"></span>
+                        <span ng-click="pageDown()"><img ng-class="{inactive:pageIndex==0}" src="img\arrow_right.png"></span>
                         <span></span> {{pageIndex+1}} <span></span>
-                        <span ng-click="pageUp()"><img src="img\arrow_left.png"></span>
+                        <span ng-click="pageUp()"><img ng-class="{inactive:pageIndex==pageCount}" src="img\arrow_left.png"></span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- TODO: full-width lines, lighter shadow as is sub-header in course details -->
-
     <div class="panel-body">
         <div>
             <table class="table-users crs-margin">
                 <thead>
-                    <tr>
+                    <tr class="crs-table-header">
                         <th class="th-users th-courses">שם קורס מקוצר</th>
                         <th class="th-users th-courses">פרויקט</th>
                         <th class="th-users th-courses">מדריך</th>
                     </tr>
                 </thead>
                 <tbody ng-model="courses">
-                    <tr class="tr-users" ng-click="goToCoursePage(course)"
-                        ng-repeat="course in courses | orderBy:sortType:sortReverse">
+                    <tr class="tr-users" ng-click="goToCoursePage(course)" ng-repeat="course in courses | orderBy:sortType:sortReverse">
                         <td class="td-courses" title="{{course.subname}}">{{course.subname}}</td>
                         <td class="td-courses" title="{{course.project}}">{{course.project}}</td>
                         <td class="td-courses" title="{{course.teachers}}">{{course.teachers}}
@@ -43,15 +39,13 @@
             </table>
         </div>
 
-        <!-- TODO: border between tabs, upper shadow -->
-        <div class="row fixed-tabs d-flex align-items-center">
-            <div class="col-6 course-tabs" ng-class="{active:courseStatus==1}">
+        <div class="row crs-fixed-tabs d-flex align-items-center">
+            <div class="col-6 course-tabs" ng-class="{crsactive:courseStatus==1}">
                 <a ng-click="goToActiveTab();">קורסים פעילים</a>
             </div>
-            <div class="col-6 course-tabs" ng-class="{active:courseStatus==0}">
+            <div class="col-6 course-tabs" ng-class="{crsactive:courseStatus==0}">
                 <a ng-click="goToInactiveTab();">קורסים לא פעילים</a>
             </div>
         </div>
-
     </div>
 </div>
