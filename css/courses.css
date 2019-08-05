@@ -219,8 +219,28 @@ form.tab-form-demo .tab-pane {
 
 .courses-full-name {
     height: 34px;
-    margin-right: 18px;
+    padding-right: 18px;
     margin-bottom: 21px;
+}
+
+.underline1, .underline2, .underline3 {
+    margin-right: -33px;
+    border-bottom: 1px solid;
+}
+
+.crs-syl-1, .crs-syl-2, .crs-syl-3 {
+    color: #5d5d5d;
+    font-size: 12px;
+    padding-right: 33px;
+    margin-top: 11.7px;
+}
+
+.crs-syl-2 {
+    padding-right: 33px;
+}
+
+.crs-syl-3 {
+    padding-right: 40px;
 }
 
 .full-name {
@@ -276,37 +296,31 @@ form.tab-form-demo .tab-pane {
 .crs-select {
     display: block;
     border: none;
-    background: url('img/arrow_down.png') no-repeat;
+    /* background: url('img/arrow_down.png') no-repeat; */
 }
-
 
 /* remove default arrow on ie10 and ie11 */
 
-
-/* .crs-select::-ms-expand { 
+ /* .crs-select::-ms-expand { 
     display: none; 
-} */
-
+}  */
 
 /* target Internet Explorer 9 to undo the custom arrow */
 
-
-/* @media screen and (min-width:0\0) {
+ /* @media screen and (min-width:0\0) {
     .crs-select {
         background:none\9;
         padding: 5px\9;
     } 
-} */
-
+}  */
 
 /* Firefox, Safari and Chrome */
 
-
-/* .crs-select {
+ /* .crs-select {
     -moz-appearance:none; 
     -webkit-appearance:none; 
     appearance:none;
-} */
+}  */
 
 
 /********************************************/
