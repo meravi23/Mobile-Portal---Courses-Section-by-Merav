@@ -22,17 +22,17 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, server) {
 				$rootScope.myEmail = $scope.email;
 				localStorage.token = data.token;
 				localStorage.isAdmin = $rootScope.isAdmin;
-				$location.path('courses');
-				// $scope.isFirstEnter = true;
-				// // Getting user info and putting on rootscope for use of header directive
-				// var data = {};
-				// $rootScope.activeUser = {};
-				// server.requestPhp(data, 'GetMyProfile').then(function (data) {
-				//     $rootScope.activeUser = data;
-				//     $rootScope.activeUser.image = ($rootScope.activeUser.image) ? $rootScope.activeUser.image : "img/userBig.png";
-				//     localStorage.setItem('activeUser', JSON.stringify($rootScope.activeUser));
-				// });
 				// $location.path('courses');
+				// $scope.isFirstEnter = true;
+				// Getting user info and putting on rootscope for use of header directive
+				var data = {};
+				$rootScope.activeUser = {};
+				server.requestPhp(data, 'GetMyProfile').then(function (data) {
+				    $rootScope.activeUser = data;
+				    $rootScope.activeUser.image = ($rootScope.activeUser.image) ? $rootScope.activeUser.image : "img/userBig.png";
+				    localStorage.setItem('activeUser', JSON.stringify($rootScope.activeUser));
+				});
+				$location.path('courses');
 			}
 		});
 	}
