@@ -1,4 +1,4 @@
-app.controller("navbarCtrl", function ($scope, $location) {
+app.controller("navbarCtrl", function ($scope, $rootScope, server, $location) {
 
 
 
@@ -35,5 +35,19 @@ app.controller("navbarCtrl", function ($scope, $location) {
             return "אישור שעות";
         }
     }
+
+    $scope.logout = function(){
+		var data = {token : $rootScope.userToken};
+		server.requestPhp(data, 'logout').then(function (data) {
+			loginStatus	=false;
+			$rootScope.userToken = "";
+			$rootScope.activeUser = {};
+            $rootScope.isAdmin = false;
+            localStorage.removeItem("loginToken");
+            localStorage.removeItem("isAdmin");
+            localStorage.removeItem("activeUser");
+			$location.path('/');
+		});
+	}
 
 })

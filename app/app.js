@@ -1,6 +1,17 @@
 
 var app = angular.module("portal", ["ngRoute", "ui.bootstrap", "ngTouch", "ngAnimate"]);
 
+app.run(function ($rootScope) {
+    // setting the active user to rootscope after refresh + loading token and other stuff from local storage
+	var retrievedActiveuser = localStorage.activeUser;
+	var retrievedUserToken = localStorage.token;
+	$rootScope.isAdmin = (localStorage.isAdmin === 'true');
+	if (retrievedActiveuser) {
+		$rootScope.activeUser = JSON.parse(retrievedActiveuser);
+    }
+    $rootScope.userToken = retrievedUserToken;
+});
+
 app.config(function($routeProvider) {
     $routeProvider.
     when("/", {
