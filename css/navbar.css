@@ -42,6 +42,9 @@
 }
 
 .sidebar {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 	background-color: #FAFAFA;
 	height: 100%;
 	width: 100%;
@@ -71,7 +74,10 @@
 .profile-preview {
 	height: calc(7vh + 4px);
 	padding: 1vh;
-	border-bottom: 1px solid #ccc;
+	/* border-bottom: 1px solid #ccc; */
+    display: flex;
+    align-items: center;
+    padding-right: 16px;
 }
 
 .profile-image {
@@ -197,6 +203,9 @@
 }
 
 .navcontainer {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 	font-family: "Assistant-Regular";
 	font-size: 20px;
 }
@@ -214,18 +223,20 @@
 }
 
 .users-nav {
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
 	display: flex;
 	align-items: center;
-	padding-left: 10px;
+	padding-right: 16.6px;
 }
 
 .arrowbardown {
 	margin-right: auto;
+	padding-left: 10px;
 }
 
 .arrowbarup {
 	margin-right: auto;
+	padding-left: 10px;
 }
 
 
@@ -339,3 +350,40 @@ padding: 10px;
 padding-right: 100px;
 
 } */
+
+.nav-item {
+	
+padding-right: 0px;
+}
+
+.navbar-nav {
+	/* border: solid black; */
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: 0;
+	width: 100%;
+}
+
+.navIconAlign {
+	width: 30px;
+	text-align: center;
+}
+
+.user-name {
+	padding-right: 2vh;
+}
+
+.imgUser {
+	width: 100%;
+}
+
+.sub-menu-nav {
+	margin-right: 48px;
+}
+
+.nav-logout {
+	display: flex;
+	flex-grow: 1;
+	padding-top: 20%;
+}
