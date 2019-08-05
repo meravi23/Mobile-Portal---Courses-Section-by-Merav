@@ -239,15 +239,15 @@ app.controller("hoursApproveCtrl", function($scope, server) {
         return res;
     }
 
-    $scope.getReportersProjectNameById = function(reporter, projectid)
+    $scope.getReportersProjectNameById = function(reportingPerimeter, projectid)
     {
-        var res = getObjectArrayFieldById(reporter.reportingPerimeter, "projectid", "projectName", projectid);
+        var res = getObjectArrayFieldById(reportingPerimeter, "projectid", "projectName", projectid);
         return res;
     }
 
-    $scope.getReportersProjectCoursesById = function(reporter, projectid)
+    $scope.getReportersProjectCoursesById = function(reportingPerimeter, projectid)
     {
-        var res = getArrayFieldById(reporter.reportingPerimeter, "projectid", "courses", projectid);
+        var res = getArrayFieldById(reportingPerimeter, "projectid", "courses", projectid);
         return res;
     }
     $scope.getReportersCourseNameById = function(projectCourses, courseid)
@@ -275,9 +275,9 @@ app.controller("hoursApproveCtrl", function($scope, server) {
         return null;
     }
 
-    $scope.getReportersProjectActionsById = function(reporter, projectid)
+    $scope.getReportersProjectActionsById = function(reportingPerimeter, projectid)
     {
-        var res = getObjectArrayFieldById(reporter.reportingPerimeter, "projectid", "subjects", projectid);
+        var res = getObjectArrayFieldById(reportingPerimeter, "projectid", "subjects", projectid);
         return res;
     }
     $scope.getReportersActionNameById = function(projectActions, subjectreportid)

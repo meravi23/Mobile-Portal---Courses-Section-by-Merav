@@ -3,7 +3,12 @@
 
     <portal-navbar></portal-navbar>
     <hours-report-month-scroll></hours-report-month-scroll>
-    
+    <div class="hours-sum">
+        <!-- not clear if need to present total hours for approve - as we may have multiple entries -->
+        <!-- {{loading?"...":('סה"כ שעות: '+sumHours())}} -->
+         
+    </div>
+
     <div class="input-wrap">
         <input type="text" placeholder="חיפוש עובד" ng-model="search" 
             ng-keyup="$event.keyCode == 13?pageIndex=0:''; $event.keyCode == 13?refreshResults():'';">
@@ -13,6 +18,7 @@
         for now search will be active when click on enter and not on every change
         ng-change="pageIndex=0;refreshResults();"
     -->
+    
     <div ng-show="loading">טוען...</div>
     <uib-accordion ng-if="!loading" close-others="true">
 
@@ -130,7 +136,7 @@
                                     פרוייקט
                                 </div>
                                 <div class="rep-data">
-                                    {{ getReportersProjectNameById(reporter, rep.projectid) }}
+                                    {{ getReportersProjectNameById(reporter.reportingPerimeter, rep.projectid) }}
                                 </div>
                             </div>
                             <div class="col">
@@ -139,7 +145,7 @@
                                 </div>
                                 <div class="rep-data">
                                     <!-- {{ rep.courseid==''?'כללי':rep.courseid }} -->
-                                    {{ getReportersCourseNameById(getReportersProjectCoursesById(reporter, rep.projectid), rep.courseid) }}
+                                    {{ getReportersCourseNameById(getReportersProjectCoursesById(reporter.reportingPerimeter, rep.projectid), rep.courseid) }}
 
                                 </div>
                             </div>
@@ -149,7 +155,7 @@
                                 </div>
                                 <div class="rep-data">
                                     <!-- {{ rep.actionid }} -->
-                                    {{ getReportersActionNameById(getReportersProjectActionsById(reporter, rep.projectid), rep.actionid) }}
+                                    {{ getReportersActionNameById(getReportersProjectActionsById(reporter.reportingPerimeter, rep.projectid), rep.actionid) }}
                                 </div>
                             </div>
                         </div>
