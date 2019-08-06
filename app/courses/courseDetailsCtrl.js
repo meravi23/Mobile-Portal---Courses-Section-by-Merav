@@ -101,5 +101,12 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeP
     };
 
     getBudgetYears();
+
+
+    $scope.filterCurrProjectTags = function (project) {
+        return $scope.course ? project.projectid == $scope.course.projectid : false;
+    };
     
 });
+
+
