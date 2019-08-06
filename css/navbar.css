@@ -53,7 +53,7 @@
 .sidebar-header {
 	background-color: #1b166e;
 	width: 100%;
-	height: 20%;
+	height: 18%;
 	display: block;
 	text-align: center;
 	padding: 5%;
@@ -64,25 +64,29 @@
 .appleseeds-logo {
 	width: 75%;
 	position: absolute;
-	left: 60px;
-	right: 0;
+	left: 56px;
+	right: 10px;
 	top: 0;
 	bottom: 0;
 	margin: auto;
 }
 
 .profile-preview {
-	height: calc(7vh + 4px);
-	padding: 1vh;
+	/* height: calc(7vh + 4px);
+	padding: 1vh; */
 	/* border-bottom: 1px solid #ccc; */
     display: flex;
     align-items: center;
-    padding-right: 16px;
+	padding-right: 16.6px;
+	margin-bottom: 10.1px;
+	margin-top: 24px;
+	padding-top: 0px;
+	padding-bottom: 0px; 
 }
 
 .profile-image {
-	width: 7vh;
-	height: 7vh;
+	/* width: 7vh;
+	height: 7vh; */
 	display: inline-block;
 	vertical-align: middle;
 	border-radius: 50%;
@@ -371,12 +375,15 @@ padding-right: 0px;
 }
 
 .user-name {
+	font-family: "Assistant-SemiBold";
 	padding-right: 2vh;
+	font-size: 24px;
+	line-height: 11px;
 }
 
-.imgUser {
-	width: 100%;
-}
+/* .imgUser {
+	width: 120%;
+} */
 
 .sub-menu-nav {
 	margin-right: 48px;
@@ -385,5 +392,11 @@ padding-right: 0px;
 .nav-logout {
 	display: flex;
 	flex-grow: 1;
-	padding-top: 20%;
+	padding-top: 5%;
+}
+
+.nav-link {
+	display: block;
+	padding-top: 14px;
+	padding-bottom: 11px;
 }
