@@ -1,6 +1,6 @@
 <div ng-show="course">
     <portal-navbar></portal-navbar>
-    <div class="container">
+    <div class="container crs-container">
         <div class="row sub-header">
             <div class="row sub-header-row">
                 <div class="col-6">
@@ -58,7 +58,11 @@
                     <div class="row crs-row">
                         <div class="col-12">
                             <div class="crs-field-header">תגיות</div>
-                            <div class="crs-field">+</div>
+                            <!-- <div class="crs-field">+</div> -->
+                            <multi-selector tabindex="5"
+							options="(projects | filter:filterCurrProjectTags:true)[0].projecttags"
+							value-index="'projecttagid'" text-index="'projecttagname'" values="course.tags"
+							class="form-input"></multi-selector>
                         </div>
                     </div>
                     <div class="row crs-row">
