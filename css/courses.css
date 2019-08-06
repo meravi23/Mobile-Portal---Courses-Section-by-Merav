@@ -3,37 +3,6 @@
     z-index: 0;
 }
 
-.input-wrap {
-    width: 80vw;
-    margin: auto;
-    background-color: #26bcbcbc;
-    height: 12vw;
-    border-radius: 94px;
-    padding: 3%;
-    box-sizing: border-box;
-    margin-bottom: 5%;
-    direction: ltr;
-}
-
-.input-wrap input {
-    height: 100%;
-    width: 59vw;
-    background-color: transparent;
-    border: none;
-    font-size: 5vw;
-    color: white;
-    vertical-align: top;
-    margin-right: 14vw;
-    box-sizing: border-box;
-    font-family: 'Assistant', sans-serif;
-    padding: 0;
-    text-align: right;
-}
-
-.input-wrap input::placeholder {
-    color: white
-}
-
 section .section-title {
     text-align: center;
     color: blue;
@@ -287,40 +256,72 @@ form.tab-form-demo .tab-pane {
     filter: alpha(opacity=50);
 }
 
+.input-wrap {
+    width: 80vw;
+    margin: auto;
+    background-color: #26bcbcbc;
+    height: 12vw;
+    border-radius: 94px;
+    padding: 3%;
+    box-sizing: border-box;
+    margin-bottom: 5%;
+    direction: ltr;
+}
+
+.input-wrap input {
+    height: 100%;
+    width: 59vw;
+    background-color: transparent;
+    border: none;
+    font-size: 5vw;
+    color: white;
+    vertical-align: top;
+    margin-right: 14vw;
+    box-sizing: border-box;
+    font-family: 'Assistant', sans-serif;
+    padding: 0;
+    text-align: right;
+}
+
+.input-wrap input::placeholder {
+    color: white
+}
+
 
 /*************dropdown down-arrow*************/
 
-
-/* TODO: fix arrow not showing */
-
-.crs-select {
-    display: block;
-    border: none;
-    /* background: url('img/arrow_down.png') no-repeat; */
+.arrow {
+    height: 17px;
+    width: 160px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 1em;
 }
 
-/* remove default arrow on ie10 and ie11 */
+.arrow:after {
+    background: url('/img/arrow_down.png') no-repeat;
+    content: "";
+    padding: 12px 8px;
+    position: absolute; 
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    pointer-events: none;
+}
 
- /* .crs-select::-ms-expand { 
-    display: none; 
-}  */
+.crs-select {
+    height: 17px;
+    width: 100%;
+    border: none;
+    -webkit-appearance: none;
+  /* for webkit browsers */
+    -moz-appearance: none;
+  /* for firefox */
+    appearance: none;
+  /* for modern browsers */
+}
 
-/* target Internet Explorer 9 to undo the custom arrow */
-
- /* @media screen and (min-width:0\0) {
-    .crs-select {
-        background:none\9;
-        padding: 5px\9;
-    } 
-}  */
-
-/* Firefox, Safari and Chrome */
-
- /* .crs-select {
-    -moz-appearance:none; 
-    -webkit-appearance:none; 
-    appearance:none;
-}  */
-
-
-/********************************************/
+/* remove default caret for ie */
+.crs-select::-ms-expand {
+    display: none;
+  }
