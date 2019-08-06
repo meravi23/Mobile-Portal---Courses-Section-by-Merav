@@ -1,6 +1,6 @@
-<div>
+<div ng-show="course">
     <portal-navbar></portal-navbar>
-    <div class="container">
+    <div class="container crs-container">
         <div class="row sub-header">
             <div class="row sub-header-row">
                 <div class="col-6">
@@ -46,9 +46,11 @@
                         <div class="col-12">
                             <div class="crs-field-header">
                                 <label>פרויקט</label>
-                                <select class="crs-select" ng-model="course.projectid"
-                                    ng-change="changeProject(course.projectid)" ng-options="project.projectid as
+                                <div class="arrow">
+                                    <select class="crs-select" ng-model="course.projectid"
+                                        ng-change="changeProject(course.projectid)" ng-options="project.projectid as
                                             project.projectname for project in projects"></select>
+                                </div>
                             </div>
                             <div class="crs-field">{{course.projectname}}</div>
                         </div>
@@ -56,22 +58,30 @@
                     <div class="row crs-row">
                         <div class="col-12">
                             <div class="crs-field-header">תגיות</div>
-                            <div class="crs-field">+</div>
+                            <!-- <div class="crs-field">+</div> -->
+                            <multi-selector tabindex="5"
+							options="(projects | filter:filterCurrProjectTags:true)[0].projecttags"
+							value-index="'projecttagid'" text-index="'projecttagname'" values="course.tags"
+							class="form-input"></multi-selector>
                         </div>
                     </div>
                     <div class="row crs-row">
                         <div class="col-6">
                             <div class="crs-field-header">
                                 <label>עיר</label>
-                                <select class="crs-select" ng-model="course.cityid"
-                                    ng-options="city.cityid as city.name for city in cities"></select>
+                                <div class="arrow">
+                                    <select class="crs-select" ng-model="course.cityid"
+                                        ng-options="city.cityid as city.name for city in cities"></select>
+                                </div>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="crs-field-header">
                                 <label>שנת תקציב</label>
-                                <select class="crs-select" ng-model="course.yearbudgetid"
-                                    ng-options="budgetyear.yearbudgetid as budgetyear.year for budgetyear in budgetyears"></select>
+                                <div class="arrow">
+                                    <select class="crs-select" ng-model="course.yearbudgetid"
+                                        ng-options="budgetyear.yearbudgetid as budgetyear.year for budgetyear in budgetyears"></select>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -84,10 +94,17 @@
                 </uib-tab>
 
                 <uib-tab index="1" heading="סילבוס">
-                    <div class="row crs-row crs-top-row">
-                        <div ng-repeat="subject in course.subjects">
-                            <div ng-repeat="subject in course.subjects">
-
+                    <div class="crs-top-row">
+                        <div class="crs-syl-1" ng-repeat="subject in course.subjects">
+                            {{subject.subject}}
+                            <div class="underline1"></div>
+                            <div class="crs-syl-2" ng-repeat="subject in subject.subsubjects">
+                                {{subject.subject}}
+                                <div class="underline2"></div>
+                                <div class="crs-syl-3" ng-repeat="subject in subject.subsubjects">
+                                    {{subject.subject}}
+                                    <div class="underline3"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
