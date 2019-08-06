@@ -1,7 +1,7 @@
+
 .crs-container {
     box-shadow: 0px 6px 3px -5px rgba(26, 0, 0, 0.5);
 }
-
 
 .courses {
     position: relative;
@@ -103,10 +103,6 @@ form.tab-form-demo .tab-pane {
     padding-right: 10px;
 }
 
-.crs-tabs {
-    /* padding-right: 32px; */
-}
-
 .th-courses {
     width: 33%;
     overflow: hidden;
@@ -188,6 +184,7 @@ form.tab-form-demo .tab-pane {
     width: 19.5px;
     margin-left: 14px;
     margin-bottom: 108.2px;
+    margin-top: 4px;
 }
 
 .courses-full-name {
