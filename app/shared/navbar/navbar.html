@@ -17,7 +17,8 @@
                     <!-- <div class="name-wrap">
                         </div> -->
                     <div class="navIconAlign">
-                        <img class="imgUser" src="img/profile_icon.png" alt="" > <!--ng-src="{{activeUser.image}}"-->
+                        <img class="imgUser" ng-show="activeUser.image" ng-src="{{activeUser.image}}" > 
+                        <img class="imgUser" ng-hide="activeUser.image" src="img/profile_icon.png"> <!--ng-src="{{activeUser.image}}" / src="img/profile_icon.png"-->
                     </div>
                     <span class="user-name">
                         שלום, {{activeUser.firstname}}!
@@ -43,13 +44,13 @@
                         <div ng-show="usermenu" class="sub-menu-nav animate-show"
                             ng-class="{'animate-hide' : !usermenu}">
                             <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/users?type=staff">עובדים</a>
+                                <a class="menu-information" href="#!/users?type=staff">עובדים</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/users?type=student">חניכים</a>
+                                <a class="menu-information" href="#!/users?type=student">חניכים</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/users?type=new">משתמשים חדשים</a>
+                                <a class="menu-information" href="#!/users?type=new">משתמשים חדשים</a>
                             </li>
                         </div>
                         <div class="users-nav">
