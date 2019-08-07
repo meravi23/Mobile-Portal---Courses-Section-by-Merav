@@ -2,7 +2,7 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeP
     $scope.arrowBackImg = "img/noun_back_arrow_2690272.png";
     $scope.copyImg = "img/noun_copy_573715.png";
     $scope.saveImg = "img/noun_save_2429243.png";
-    
+
     $scope.courseid = $routeParams.id;
     console.log("Course ID: " + $scope.courseid);
 
@@ -14,7 +14,7 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeP
             console.log($scope.course);
 
             //an array keeping a list of subjects that should be deleted once course id is saved
-            // $scope.course.subjectsToDelete = [];
+            $scope.course.subjectsToDelete = [];
             getProjects();
             // getCustomFields();
             // $scope.getEnrolledUsersInRole(1);
@@ -52,32 +52,33 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeP
 
     /***************copy course *****************/
 
+    //TODO: to be implemented
     $scope.duplicateCourse = function () {
-        $scope.students = [];
-        unbindSubjectsFromCourse();
-        $scope.course.courseid = null;
-        $scope.course.name = '';
-        $scope.course.code = '';
-        $scope.courseid = null;
-        alert("נא למלא את השדות החסרים ולשמור");
+        // $scope.students = [];
+        // unbindSubjectsFromCourse();
+        // $scope.course.courseid = null;
+        // $scope.course.name = '';
+        // $scope.course.code = '';
+        // $scope.courseid = null;
+        alert("נא למלא את השדות החסרים ולשמור (---שכפול קורס טרם הוטמע)");
     };
 
-    function unbindSubjectsFromCourse() {
-        for (var i = 0; i < $scope.course.subjects.length; i++) {
-            //and reset their subsubject id
-            recursiveSubjectUnbinding($scope.course.subjects[i]);
-        }
-    }
+    // function unbindSubjectsFromCourse() {
+    //     for (var i = 0; i < $scope.course.subjects.length; i++) {
+    //         //and reset their subsubject id
+    //         recursiveSubjectUnbinding($scope.course.subjects[i]);
+    //     }
+    // }
 
-    function recursiveSubjectUnbinding(subject) {
-        subject.subjectid = null;
-        if (subject.subsubjects) {
-            for (var i = 0; i < subject.subsubjects.length; i++) {
-                //and reset their subsubject id
-                recursiveSubjectUnbinding(subject.subsubjects[i]);
-            }
-        }
-    }
+    // function recursiveSubjectUnbinding(subject) {
+    //     subject.subjectid = null;
+    //     if (subject.subsubjects) {
+    //         for (var i = 0; i < subject.subsubjects.length; i++) {
+    //             //and reset their subsubject id
+    //             recursiveSubjectUnbinding(subject.subsubjects[i]);
+    //         }
+    //     }
+    // }
 
     /***************save course****************/
 
@@ -90,25 +91,11 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeP
                 if (data.error) {
                     alert(data.error);
                 } else {
-                    //display 'saved successfully' message
                     alert("נשמר בהצלחה");
-                    getCourse();
-                    //location.reload();
+                    $scope.getCourse();
                 }
             });
-        } else {
-            server.requestPhp(data, 'AddCourse').then(function (data) {
-                if (data.error) {
-                    alert(data.error);
-                } else {
-                    //display 'saved successfully' message
-                    alert("נשמר בהצלחה");
-                    $state.transitionTo('singleCourse', {
-                        courseId: data.courseid
-                    });
-                }
-            });
-        }
+        } 
     };
 
 
@@ -125,7 +112,7 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeP
 
     $scope.budgetyears = [];
 
-    
+
     var getBudgetYears = function () {
         var data = {};
         server.requestPhp(data, 'GetYearsBudget').then(function (data) {
@@ -136,52 +123,52 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeP
     getBudgetYears();
 
     // tags תגיות
+    // TODO: default tags imported. Need to implement addition of other tags.
     $scope.filterCurrProjectTags = function (project) {
         return $scope.course ? project.projectid == $scope.course.projectid : false;
     };
 
-    // add subject to syllabus
-    $scope.addSubject = function (context) {
-        context.push({
-            "subjectid": null,
-            "subject": '',
-            "subjectinarabic": '',
-            "subsubjects": []
-        });
 
-        /*
-        var para = document.createElement("P");                       // Create a <p> node
-        var t = document.createTextNode("This is a paragraph.");      // Create a text node
-        para.appendChild(t);                                          // Append the text to <p>
-        document.getElementById("myDIV").appendChild(para);           // Append <p> to <div> with id="myDIV"
-        */
+    // add new subject to syllabus 
 
-        // var subjectInput = document.createElement("INPUT");
-        // var d = document.cre
-        // var angModel = document.createAttribute("ng-model");
-        // angModel.value = {{userInput}};
-        
+    // $scope.userInput = "";
+    // $scope.newMainSubjects = []; 
+    // $scope.newSubSubjects = {
+    //     subID: [],
+    // }; 
 
-    };
+    // $scope.addSubject = function (subject) {
+    //
+    // }
 
+    // $scope.addSubject = function (context) {
+    //     context.push({
+    //         "subjectid": null,
+    //         "subject": '',
+    //         "subjectinarabic": '',
+    //         "subsubjects": []
+    //     });
+    //};
+
+    
     $scope.emptySyllabus = function () {
         if (!confirm("בטוח\\ה? כל הנושאים יימחקו!"))
             return;
         while ($scope.course.subjects.length > 0) {
             $scope.deleteSubject($scope.course.subjects[0], $scope.course.subjects);
         }
+        alert("ריקון זמני בלבד - יש להטמיע מחיקה, ריקון ושמירה")
     };
 
     $scope.deleteSubject = function (subject, roots) {
         // emptying entire syllabus
-            if (roots) {
+        if (roots) {
             var index = roots.indexOf(subject);
             if (index > -1) {
                 roots.splice(index, 1);
             }
         }
-        
-        // emptying subject by subject
+
         // if (subject.subjectid) {
         //     $scope.course.subjectsToDelete.push(subject.subjectid);
         // }
@@ -191,5 +178,3 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeP
     };
     
 });
-
-

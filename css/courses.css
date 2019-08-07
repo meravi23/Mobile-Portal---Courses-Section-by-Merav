@@ -113,7 +113,7 @@ form.tab-form-demo .tab-pane {
 
 .td-courses {
     text-align: center;
-    height: 90px;
+    height: 42px;
     font-family: "Assistant-Regular";
     width: 33%;
     overflow: hidden;
@@ -209,6 +209,11 @@ form.tab-form-demo .tab-pane {
     padding-right: 33px;
 }
 
+.crs-syl-1:last-child {
+    margin-bottom: 76px;
+}
+
+
 .crs-syl-2 {
     padding-right: 33px;
 }
@@ -237,7 +242,7 @@ form.tab-form-demo .tab-pane {
 }
 
 .crs-field-header,
-.crs-field {
+.crs-field, .selected-value {
     font-size: 12px;
     line-height: 15px;
     color: #5d5d5d;
@@ -247,7 +252,7 @@ form.tab-form-demo .tab-pane {
     font-family: "Assistant-SemiBold";
 }
 
-.crs-field {
+.crs-field, .selected-value {
     font-family: "Assistant-Light";
     margin-top: 8px;
 }
@@ -315,6 +320,10 @@ form.tab-form-demo .tab-pane {
 }
 
 .crs-select {
+    font-family: "Assistant-Light";
+    font-size: 12px;
+    line-height: 15px;
+    color: #5d5d5d;
     height: 17px;
     width: 100%;
     border: none;
