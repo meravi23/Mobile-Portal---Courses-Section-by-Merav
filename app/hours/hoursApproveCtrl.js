@@ -1,4 +1,4 @@
-app.controller("hoursApproveCtrl", function($scope, server) {
+app.controller("hoursApproveCtrl", function($scope, server, hoursSrv) {
     
     $scope.loading = true;
     // $scope.pageIndex=0;
@@ -61,12 +61,7 @@ app.controller("hoursApproveCtrl", function($scope, server) {
 
     $scope.calculateHours = function(report)
     {
-        if(report.finishhour && report.starthour){
-            var t1 = moment(report.finishhour, "hh:mm");
-            var t2 = moment(report.starthour, "hh:mm");
-            var t3 = moment.utc(moment(t1,"HH:mm").diff(moment(t2,"HH:mm"))).format("HH:mm");
-            report.hours = t3;
-        }
+        hoursSrv.calculateHours(report);
     }
 
     $scope.calculateHoursSummary = function(reporter)
@@ -79,7 +74,7 @@ app.controller("hoursApproveCtrl", function($scope, server) {
         {
             if(reporter.reports[i].hours)
             {
-                var reportHours=timeStringToAmount(reporter.reports[i].hours);
+                var reportHours=hoursSrv.timeStringToAmount(reporter.reports[i].hours);
                 reported+=reportHours;
                 if(reporter.reports[i].approval=='1')
                 {
@@ -98,13 +93,6 @@ app.controller("hoursApproveCtrl", function($scope, server) {
         reporter.rejectedHours = rejected;
     }
 
-    
-    function timeStringToAmount(timeString) {
-        var hoursMinutes = timeString.split(":");
-        var hours = parseInt(hoursMinutes[0]);
-        var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1]) : 0;
-        return hours + minutes / 60;
-    }
 
      //function used to filter search string on first and last names
      function searchNames(name)
@@ -122,7 +110,7 @@ app.controller("hoursApproveCtrl", function($scope, server) {
         $scope.goToPage(0);
     }
 
-    // This fucntion is still not in use - as we do not habe yet pagination
+    // This fucntion is still not in use - as we do not have yet pagination
     $scope.goToPage = function(pageNum)
 	{
         // pagenmb = pageNum;
@@ -241,13 +229,13 @@ app.controller("hoursApproveCtrl", function($scope, server) {
 
     $scope.getReportersProjectNameById = function(reportingPerimeter, projectid)
     {
-        var res = getObjectArrayFieldById(reportingPerimeter, "projectid", "projectName", projectid);
+        var res = hoursSrv.getObjectArrayFieldById(reportingPerimeter, "projectid", "projectName", projectid);
         return res;
     }
 
     $scope.getReportersProjectCoursesById = function(reportingPerimeter, projectid)
     {
-        var res = getArrayFieldById(reportingPerimeter, "projectid", "courses", projectid);
+        var res = hoursSrv.getArrayFieldById(reportingPerimeter, "projectid", "courses", projectid);
         return res;
     }
     $scope.getReportersCourseNameById = function(projectCourses, courseid)
@@ -256,48 +244,21 @@ app.controller("hoursApproveCtrl", function($scope, server) {
         {
             return "כללי";
         }
-        var res =  getObjectArrayFieldById(projectCourses, "courseid", "name", courseid);
+        var res =  hoursSrv.getObjectArrayFieldById(projectCourses, "courseid", "name", courseid);
         if (res == null || res=="")
             res = "כללי";
         return res;
     }
 
 
-    function getObjectArrayFieldById (arr, idField, targetField, id)
-    // the structure hold id and object - it is not typical array
-    {
-        if(arr==null||id==null)
-            return null;
-        if (arr[id][idField]===id)
-        {
-            return arr[id][targetField];
-        }
-        return null;
-    }
-
     $scope.getReportersProjectActionsById = function(reportingPerimeter, projectid)
     {
-        var res = getObjectArrayFieldById(reportingPerimeter, "projectid", "subjects", projectid);
+        var res = hoursSrv.getObjectArrayFieldById(reportingPerimeter, "projectid", "subjects", projectid);
         return res;
     }
     $scope.getReportersActionNameById = function(projectActions, subjectreportid)
     {
-        return getArrayFieldById(projectActions, "reportsubjectid", "subject", subjectreportid);
-    }
-
-    function getArrayFieldById (arr, idField, targetField, id)
-    {
-        if(arr==null||id==null)
-            return null;
-
-        for (var i=0; i<arr.length; i++)
-        {
-            if (arr[i][idField]===id)
-            {
-                return arr[i][targetField];
-            }
-        }
-        return null;
+        return hoursSrv.getArrayFieldById(projectActions, "reportsubjectid", "subject", subjectreportid);
     }
 
     $scope.getSelectedRows = function(reporters)
