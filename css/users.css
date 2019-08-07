@@ -89,3 +89,22 @@
 .usrsactive {
     font-weight: bold;
 }
+
+.users-icon-row {
+    margin-top: 16.7px;
+}
+
+.users-header {
+    font-size: 28px;
+    font-family: "Assistant-SemiBold";
+    /* max-width: 125px; */
+    line-height: 30px;
+    color: #5d5d5d;
+    margin-top: 8px;
+}
+
+.users-full-name {
+    height: 34px;
+    padding-right: 18px;
+    margin-bottom: 21px;
+}
