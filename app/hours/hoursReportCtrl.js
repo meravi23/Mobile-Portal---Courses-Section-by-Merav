@@ -1,4 +1,4 @@
-app.controller("hoursReportCtrl", function ($scope, server) {
+app.controller("hoursReportCtrl", function ($scope, server, hoursSrv) {
     const rowsPerPage = 15;
 
     $scope.GetReports = function () {
@@ -44,76 +44,38 @@ app.controller("hoursReportCtrl", function ($scope, server) {
     };
     $scope.GetReportingPerimeter();
 
-    $scope.calculateHours = function(report) {
-        if (report.finishhour && report.starthour) {
-            var t1 = moment(report.finishhour, "HH:mm");
-            var t2 = moment(report.starthour, "HH:mm");
-            var t3 = moment.utc(moment(t1, "HH:mm").diff(moment(t2, "HH:mm"))).format("HH:mm");
-            report.hours = t3;
-            report.copyreport.hours=t3;
-        }
-    };
+    $scope.calculateHours = function(report)
+    {
+        hoursSrv.calculateHours(report);
+    }
 
     $scope.sumHours = function () {
         var sum = 0;
         for (var i = 0; i < $scope.reports.length; i++) {
             if ($scope.reports[i].hours) {
-                sum += timeStringToAmount($scope.reports[i].hours);
+                sum += hoursSrv.timeStringToAmount($scope.reports[i].hours);
             }
         }
         return sum;
     }
 
-    function timeStringToAmount(timeString) {
-        var hoursMinutes = timeString.split(":");
-        var hours = parseInt(hoursMinutes[0]);
-        var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1]) : 0;
-        return hours + minutes / 60;
-    }
 
     $scope.getReportersProjectNameById = function(reportingPerimeter, projectid)
     {
-        var res = getObjectArrayFieldById(reportingPerimeter, "projectid", "projectName", projectid);
+        var res = hoursSrv.getObjectArrayFieldById(reportingPerimeter, "projectid", "projectName", projectid);
         return res;
     }
 
-    function getObjectArrayFieldById (arr, idField, targetField, id)
-    // the structure hold id and object - it is not typical array
-    {
-        if(arr==null || arr==undefined || id==null || id == undefined)
-            return null;
-        if (arr[id] == undefined)
-            return null;
-        if (arr[id][idField]===id)
-        {
-            return arr[id][targetField];
-        }
-        return null;
-    }
     $scope.getReportersProjectActionsById = function(reportingPerimeter, projectid)
     {
-        var res = getObjectArrayFieldById(reportingPerimeter, "projectid", "subjects", projectid);
+        var res = hoursSrv.getObjectArrayFieldById(reportingPerimeter, "projectid", "subjects", projectid);
         return res;
     }
 
     $scope.getReportersActionNameById = function(projectActions, subjectreportid)
     {
-        return getArrayFieldById(projectActions, "reportsubjectid", "subject", subjectreportid);
+        return hoursSrv.getArrayFieldById(projectActions, "reportsubjectid", "subject", subjectreportid);
     }
 
-    function getArrayFieldById (arr, idField, targetField, id)
-    {
-        if(arr==null||id==null)
-            return null;
-
-        for (var i=0; i<arr.length; i++)
-        {
-            if (arr[i][idField]===id)
-            {
-                return arr[i][targetField];
-            }
-        }
-        return null;
-    }
 
 });
