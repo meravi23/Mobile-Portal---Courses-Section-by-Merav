@@ -48,6 +48,6 @@ app.controller("navbarCtrl", function ($scope, $rootScope, server, $location) {
             localStorage.removeItem("activeUser");
 			$location.path('/');
 		});
-	}
-
+    }
+    
 })

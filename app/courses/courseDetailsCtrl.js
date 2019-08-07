@@ -79,6 +79,39 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeP
         }
     }
 
+    /***************save course****************/
+
+    $scope.saveCourse = function () {
+        var data = {};
+        data.course = $scope.course;
+        if ($scope.courseid) {
+            // if (usersToDelete && usersToDelete.length) deleteUsersFromDBase();
+            server.requestPhp(data, 'UpdateCourse').then(function (data) {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    //display 'saved successfully' message
+                    alert("נשמר בהצלחה");
+                    getCourse();
+                    //location.reload();
+                }
+            });
+        } else {
+            server.requestPhp(data, 'AddCourse').then(function (data) {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    //display 'saved successfully' message
+                    alert("נשמר בהצלחה");
+                    $state.transitionTo('singleCourse', {
+                        courseId: data.courseid
+                    });
+                }
+            });
+        }
+    };
+
+
     $scope.cities = [];
 
     var getCities = function () {
@@ -101,5 +134,62 @@ app.controller("courseDetailsCtrl", function ($scope, $location, server, $routeP
     };
 
     getBudgetYears();
+
+    // tags תגיות
+    $scope.filterCurrProjectTags = function (project) {
+        return $scope.course ? project.projectid == $scope.course.projectid : false;
+    };
+
+    // add subject to syllabus
+    $scope.addSubject = function (context) {
+        context.push({
+            "subjectid": null,
+            "subject": '',
+            "subjectinarabic": '',
+            "subsubjects": []
+        });
+
+        /*
+        var para = document.createElement("P");                       // Create a <p> node
+        var t = document.createTextNode("This is a paragraph.");      // Create a text node
+        para.appendChild(t);                                          // Append the text to <p>
+        document.getElementById("myDIV").appendChild(para);           // Append <p> to <div> with id="myDIV"
+        */
+
+        // var subjectInput = document.createElement("INPUT");
+        // var d = document.cre
+        // var angModel = document.createAttribute("ng-model");
+        // angModel.value = {{userInput}};
+        
+
+    };
+
+    $scope.emptySyllabus = function () {
+        if (!confirm("בטוח\\ה? כל הנושאים יימחקו!"))
+            return;
+        while ($scope.course.subjects.length > 0) {
+            $scope.deleteSubject($scope.course.subjects[0], $scope.course.subjects);
+        }
+    };
+
+    $scope.deleteSubject = function (subject, roots) {
+        // emptying entire syllabus
+            if (roots) {
+            var index = roots.indexOf(subject);
+            if (index > -1) {
+                roots.splice(index, 1);
+            }
+        }
+        
+        // emptying subject by subject
+        // if (subject.subjectid) {
+        //     $scope.course.subjectsToDelete.push(subject.subjectid);
+        // }
+        // for (var i = 0; i < subject.subsubjects.length; i++) {
+        //     $scope.deleteSubject(subject.subsubjects[i], null);
+        // }
+    };
     
 });
+
+
