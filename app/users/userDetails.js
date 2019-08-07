@@ -13,13 +13,6 @@ app.controller("userDetailsCtrl", function($scope, $location, server, $routePara
             $scope.user = data.profile;
            console.log($scope.user);
         });
-
-
-        // server.requestPhp(data, 'GetUserById').then(function (data) {
-        //     $scope.user = data;
-        //     console.log($scope.course);
-
-        // });
     };
     if ($scope.userid) {
         $scope.getUser();
