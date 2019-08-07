@@ -77,9 +77,11 @@
     
 } 
 
+/* forgot password link was set to hidded cause login was not imlemented yet */
 .login-pass{
     color: #ffffff;
     font-size: 1.3em;
+    visibility: hidden;
     
 }
 
@@ -119,3 +121,58 @@ background-color: #ffffff;
     left: 15px; 
     }
 
+/* forgot pw css design needs to be completed for iphone 5SE*/
+
+.forgot-span {
+    font-size: 35.2px;
+    color: #5d5d5d;
+    position: absolute;
+    top: 17.6px; 
+    left: 18.6px; 
+    }
+
+.forgot-modal {
+    width: 312.2px;
+    height: 408px;
+    background-color: #ffffff;
+       
+}
+
+input.forgot-email:focus {
+    outline: none;
+    
+}
+
+input.forgot-email {
+    border: none; 
+    border-bottom: 1px solid black;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+
+.modal-dialog {
+margin-top: 116px;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+#modal-title {
+    text-align: center;
+    color: #5d5d5d;
+    font-size: 35px; 
+    margin-bottom: 70px;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+.btn.btn-light {
+    background-color: #ffffff; 
+    font-size: 23px; 
+    color: #5d5d5d;
+    border: none;
+}

@@ -1,4 +1,7 @@
-app.controller('loginCtrl', function ($rootScope, $scope, $location, server) {
+app.controller('loginCtrl', function ($rootScope, $scope, $location, server, $uibModal) {
+
+
+
 
 	$scope.error_password = false;
 	$scope.login = function () {
@@ -41,6 +44,16 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, server) {
 		$scope.error_password = false;
 	
 	}
+// modal functionality of forgot password is not completed no logic was implemented.
+	$scope.open = function () {
+		  var modalInstance = $uibModal.open({
+		  templateUrl: 'app/login/forgotpwmodal.html',
+		  controller: 'forgotpwCtrl'
+		  });
+		}
+
+		
+		  
 
 	// var waitingForServer=false;
 	// $scope.forgotPass={};
