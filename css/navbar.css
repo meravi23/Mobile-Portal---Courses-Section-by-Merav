@@ -349,11 +349,9 @@ text-align: center;
 padding: 10px;
 
 }
-/* .placeHeadNav {
-	margin: auto;
-padding-right: 100px;
-
-} */
+.placeHeadNav {
+	font-size: 15px;
+}
 
 .nav-item {
 	
