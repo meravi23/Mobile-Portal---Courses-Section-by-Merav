@@ -1,12 +1,35 @@
 <div>
     <portal-navbar></portal-navbar>
-    <div class="container user-tabs">
-        <h1>פרטי משתמש</h1>
-        <uib-tabset active="activeJustified" justified="true">
-            <uib-tab index="0" heading="פרופיל">פרופיל</uib-tab>
-            <uib-tab index="1" heading="קורסים">קורסים</uib-tab>
-            <uib-tab index="2" heading="עובדים">עובדים</uib-tab>
-            <uib-tab index="3" heading="דיווח">דיווח</uib-tab>
-        </uib-tabset>
+    <div class="container users-container">
+        <div class="col-6">
+            <h2 class="users-header">{{user.firstname}}</h2>
+        </div>
+        <div class="col-6">
+            <h2 class="users-header">{{user.lastname}}</h2>
+        </div>
+        <!-- <div class="col-6 users-icon-row">
+                    <div class="row">
+                        <div class="col-2 sub-header-back" ng-click="goBack()"><img ng-src="{{arrowBackImg}}"></div>
+                        <div class="col-2 sub-header-copy" ng-click=duplicateCourse()><img ng-src="{{copyImg}}"></div>
+                        <div class="col-2 sub-header-save" ng-click="saveCourse()"><input type="image"
+                                ng-src="{{saveImg}}"></div>
+                    </div>
+                </div> -->
     </div>
+
+    <!-- Tabs -->
+    <section id="tabs">
+        <div class="users-tabs">
+            <uib-tabset active="activeJustified" justified="true">
+                <uib-tab index="0" heading="פרופיל">
+                </uib-tab>
+                <uib-tab index="1" heading="קורסים">
+                </uib-tab>
+                <uib-tab index="2" heading="עובדים">
+                </uib-tab>
+                <uib-tab index="3" heading="דיווח">
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </section>
 </div>
