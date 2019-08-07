@@ -17,7 +17,8 @@
                     <!-- <div class="name-wrap">
                         </div> -->
                     <div class="navIconAlign">
-                        <img class="imgUser" src="img/profile_icon.png" alt="" > <!--ng-src="{{activeUser.image}}"-->
+                        <img class="imgUser" ng-show="activeUser.image" ng-src="{{activeUser.image}}" > 
+                        <img class="imgUser" ng-hide="activeUser.image" src="img/profile_icon.png"> <!--ng-src="{{activeUser.image}}" / src="img/profile_icon.png"-->
                     </div>
                     <span class="user-name">
                         שלום, {{activeUser.firstname}}!
@@ -42,14 +43,14 @@
 
                         <div ng-show="usermenu" class="sub-menu-nav animate-show"
                             ng-class="{'animate-hide' : !usermenu}">
-                            <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/users?type=staff">עובדים</a>
+                            <li class="nav-item nav-users">
+                                <a class="menu-information" ng-class="{'navActive' : menuIndex() === 'עובדים'}" ng-click="navNavigation('users?type=staff')" href="javascript:void(0)">עובדים</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/users?type=student">חניכים</a>
+                            <li class="nav-item nav-users">
+                                <a class="menu-information" ng-class="{'navActive' : menuIndex() === 'חניכים'}" ng-click="navNavigation('/users?type=student')" href="javascript:void(0)">חניכים</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/users?type=new">משתמשים חדשים</a>
+                            <li class="nav-item nav-users">
+                                <a class="menu-information" ng-class="{'navActive' : menuIndex() === 'משתמשים חדשים'}" ng-click="navNavigation('/users?type=new')" href="javascript:void(0)">משתמשים חדשים</a>
                             </li>
                         </div>
                         <div class="users-nav">
@@ -58,8 +59,8 @@
                             </div>
 
                             <li class="nav-item active">
-                                <a class="nav-link menu-information" href="#!/courses"
-                                    ng-click="goToCoursesPage()">קורסים</a>
+                                <a class="nav-link menu-information" href="javascript:void(0)"
+                                ng-class="{'navActive' : menuIndex() === 'קורסים'}" ng-click="navNavigation('/courses')">קורסים</a>
                             </li>
                         </div>
                         <div class="users-nav">
@@ -68,7 +69,7 @@
                             </div>
 
                             <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/hours-report">דיווח שעות</a>
+                                <a ng-class="{'navActive' : menuIndex() === 'דיווח שעות'}" ng-click="navNavigation('/hours-report')" class="nav-link menu-information" href="javascript:void(0)">דיווח שעות</a>
                             </li>
                         </div>
                         <div class="users-nav">
@@ -77,7 +78,7 @@
                             </div>
 
                             <li class="nav-item">
-                                <a class="nav-link menu-information" href="#!/hours-approve">אישור שעות</a>
+                                <a ng-class="{'navActive' : menuIndex() === 'אישור שעות'}" ng-click="navNavigation('/hours-approve')" class="nav-link menu-information" href="javascript:void(0)">אישור שעות</a>
                             </li>
                         </div>
                         <div class="nav-logout users-nav">

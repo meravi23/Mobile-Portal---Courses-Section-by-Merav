@@ -1,4 +1,4 @@
-app.controller("hoursReportCtrl", function ($scope, server) {
+app.controller("hoursReportCtrl", function ($scope, server, hoursSrv) {
     const rowsPerPage = 15;
 
     $scope.GetReports = function () {
@@ -32,37 +32,8 @@ app.controller("hoursReportCtrl", function ($scope, server) {
             $scope.loading = false;
         });
     };
-    $scope.GetReports();
-
-    $scope.getReportsFull = function () {
-        var rep = JSON.parse(JSON.stringify($scope.reports));
-
-        rep.forEach(function (el) {
-            // el.approval = el.approval === 0 ? "ממתין" : el.approval === 1 ? "אושר" : el.approval === -1 ? "נדחה" : "לא מוגדר";
-
-            el.actionid = (($scope.reportingPerimeter[el.projectid] || { projectid: null, subjects: ["לא מוגדר"] }).subjects.filter(function (sel) {
-                return el.actionid === sel.reportsubjectid;
-            })[0] || { "reportsubjectid": null, "subject": "לא מוגדר" }).subject;
-            el.courseid = (($scope.reportingPerimeter[el.projectid] || { projectid: null, courses: ["לא מוגדר"] }).courses.filter(function (cer) {
-                return el.courseid === cer.courseid;
-            })[0] || { "courseid": null, "courseName": "כללי" }).courseName;
-            el.projectid = ($scope.reportingPerimeter[el.projectid] || { "projectid": null, "projectName": "לא מוגדר" }).projectName;
-        });
-        var str = JSON.stringify(rep);
-        str = str.replace(/actionid/g, "action").replace(/courseid/g, "course").replace(/projectid/g, "project");
-        rep = JSON.parse(str);
-        rep.forEach(function (el) {
-            el.date = moment(el.date, "DD/MM/YYYY")._d;
-            delete el.userid;
-            delete el.reportid;
-        });
-
-        var head = { date: "תאריך", project: "פרויקט", action: "נושא פעילות", course: "מס/שם קורס", starthour: "שעת התחלה", finishhour: "שעת סיום", hours: 'סה"כ שעות', carkm: 'רכב פרטי ק"מ', cost: 'תחבורה ציבורית ש"ח', comment: "הערות", approval: "אישור נוכחות", checkdate: 'זמן שינוי סטטוס ע"י מנהל' };
-        rep.unshift(head);
-        var async = $q.defer();
-        async.resolve(rep);
-        return async.promise;
-    };
+    // first call is from directive that present the month
+    // $scope.GetReports();
 
     $scope.reportingPerimeter = [];
     $scope.GetReportingPerimeter = function () {
@@ -73,29 +44,38 @@ app.controller("hoursReportCtrl", function ($scope, server) {
     };
     $scope.GetReportingPerimeter();
 
-   
-
-    $scope.Delete = function (rep) {
-        $scope.deletedrep = rep;
-        $scope.deletingcontrol.open();
-    };
-
+    $scope.calculateHours = function(report)
+    {
+        hoursSrv.calculateHours(report);
+    }
 
     $scope.sumHours = function () {
         var sum = 0;
         for (var i = 0; i < $scope.reports.length; i++) {
             if ($scope.reports[i].hours) {
-                sum += timeStringToAmount($scope.reports[i].hours);
+                sum += hoursSrv.timeStringToAmount($scope.reports[i].hours);
             }
         }
         return sum;
     }
 
-    function timeStringToAmount(timeString) {
-        var hoursMinutes = timeString.split(":");
-        var hours = parseInt(hoursMinutes[0]);
-        var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1]) : 0;
-        return hours + minutes / 60;
+
+    $scope.getReportersProjectNameById = function(reportingPerimeter, projectid)
+    {
+        var res = hoursSrv.getObjectArrayFieldById(reportingPerimeter, "projectid", "projectName", projectid);
+        return res;
     }
+
+    $scope.getReportersProjectActionsById = function(reportingPerimeter, projectid)
+    {
+        var res = hoursSrv.getObjectArrayFieldById(reportingPerimeter, "projectid", "subjects", projectid);
+        return res;
+    }
+
+    $scope.getReportersActionNameById = function(projectActions, subjectreportid)
+    {
+        return hoursSrv.getArrayFieldById(projectActions, "reportsubjectid", "subject", subjectreportid);
+    }
+
 
 });
