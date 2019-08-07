@@ -283,7 +283,7 @@
 
 .animate-show {
 	transition: all linear 0.5s;
-	animation: tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	animation: tracking-in-contract-bck 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
 @keyframes tracking-in-contract-bck {
@@ -316,7 +316,7 @@
 	0% {
 		transform: translateZ(0);
 		opacity: 1;
-		max-height: 200px;
+		max-height: 280px;
 		overflow: hidden;
 	}
 
@@ -404,3 +404,9 @@ padding-right: 0px;
 .nav-users {
 	margin-bottom: 2%;
 } 
+
+.navActive {
+font-weight: bolder;
+
+
+}
