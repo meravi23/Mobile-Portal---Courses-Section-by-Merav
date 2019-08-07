@@ -1,4 +1,4 @@
-app.controller("navbarCtrl", function ($scope, $rootScope, server, $location) {
+app.controller("navbarCtrl", function ($scope, $rootScope, server, $location, $timeout) {
 
 
 
@@ -48,6 +48,13 @@ app.controller("navbarCtrl", function ($scope, $rootScope, server, $location) {
             localStorage.removeItem("activeUser");
 			$location.path('/');
 		});
-	}
+    }
 
+    $scope.navNavigation = function(navTo) {
+        $scope.isOpen = false;
+        $timeout(function() {
+            $location.path(navTo)
+        }, 400);
+    }
+    
 })

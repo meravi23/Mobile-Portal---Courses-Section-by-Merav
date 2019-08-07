@@ -1,6 +1,6 @@
-<div>
+<div ng-show="course">
     <portal-navbar></portal-navbar>
-    <div class="container">
+    <div class="container crs-container">
         <div class="row sub-header">
             <div class="row sub-header-row">
                 <div class="col-6">
@@ -10,7 +10,8 @@
                     <div class="row">
                         <div class="col-2 sub-header-back" ng-click="goBack()"><img ng-src="{{arrowBackImg}}"></div>
                         <div class="col-2 sub-header-copy" ng-click=duplicateCourse()><img ng-src="{{copyImg}}"></div>
-                        <div class="col-2 sub-header-save"><img ng-src="{{saveImg}}"></div>
+                        <div class="col-2 sub-header-save" ng-click="saveCourse()"><input type="image"
+                                ng-src="{{saveImg}}"></div>
                     </div>
                 </div>
             </div>
@@ -25,87 +26,101 @@
         <div class="crs-tabs">
             <uib-tabset active="activeJustified" justified="true">
                 <uib-tab index="0" heading="קורס">
-                    <div class="row crs-row crs-top-row">
-                        <div class="col-12">
-                            <div class="crs-field-header">שם קורס מלא
+                    <form ng-submit="saveCourse()">
+                        <div class="row crs-row crs-top-row">
+                            <div class="col-12">
+                                <div class="crs-field-header">שם קורס מלא
+                                </div>
+                                <div class="crs-field">{{course.name}}</div>
                             </div>
-                            <div class="crs-field">{{course.name}}</div>
                         </div>
-                    </div>
-                    <div class="row crs-row">
-                        <div class="col-6">
-                            <div class="crs-field-header">שם קורס מקוצר בעברית </div>
-                            <div class="crs-field">{{course.subname}}</div>
+                        <div class="row crs-row">
+                            <div class="col-6">
+                                <div class="crs-field-header">שם קורס מקוצר בעברית </div>
+                                <div class="crs-field">{{course.subname}}</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="crs-field-header">שם קורס מקוצר בערבית </div>
+                                <div class="crs-field">{{course.subnameinarabic}}</div>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <div class="crs-field-header">שם קורס מקוצר בערבית </div>
-                            <div class="crs-field">{{course.subnameinarabic}}</div>
-                        </div>
-                    </div>
-                    <div class="row crs-row">
-                        <div class="col-12">
-                            <div class="crs-field-header">
-                                <label>פרויקט</label>
-                                <select class="crs-select" ng-model="course.projectid"
-                                    ng-change="changeProject(course.projectid)" ng-options="project.projectid as
+                        <div class="row crs-row">
+                            <div class="col-12">
+                                <div class="crs-field-header">
+                                    <label>פרויקט</label>
+                                    <div class="arrow">
+                                        <select class="crs-select" ng-model="course.projectid"
+                                            ng-change="changeProject(course.projectid)" ng-options="project.projectid as
                                             project.projectname for project in projects"></select>
-                            </div>
-                            <div class="crs-field">{{course.projectname}}</div>
-                        </div>
-                    </div>
-                    <div class="row crs-row">
-                        <div class="col-12">
-                            <div class="crs-field-header">תגיות</div>
-                            <div class="crs-field">+</div>
-                        </div>
-                    </div>
-                    <div class="row crs-row">
-                        <div class="col-6">
-                            <div class="crs-field-header">
-                                <label>עיר</label>
-                                <select class="crs-select" ng-model="course.cityid"
-                                    ng-options="city.cityid as city.name for city in cities"></select>
+                                    </div>
+                                </div>
+                                <div class="crs-field">{{course.projectname}}</div>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="crs-field-header">
-                                <label>שנת תקציב</label>
-                                <select class="crs-select" ng-model="course.yearbudgetid"
-                                    ng-options="budgetyear.yearbudgetid as budgetyear.year for budgetyear in budgetyears"></select>
+                        <div class="row crs-row">
+                            <div class="col-12">
+                                <div class="crs-field-header">תגיות</div>
+                                <!-- TODO: consider alternative solution: https://www.npmjs.com/package/angularjs-bootstrap-multiselect -->
+                                <multi-selector tabindex="5"
+                                    options="(projects | filter:filterCurrProjectTags:true)[0].projecttags"
+                                    value-index="'projecttagid'" text-index="'projecttagname'" values="course.tags"
+                                    class="form-input"></multi-selector>
                             </div>
                         </div>
-                    </div>
-                    <div class="row crs-row">
-                        <div class="col-12">
-                            <div class="crs-field-header">מדריך</div>
-                            <div class="crs-field">{{course.primaryTeacherName}}</div>
+                        <div class="row crs-row">
+                            <div class="col-6">
+                                <div class="crs-field-header">
+                                    <label>עיר</label>
+                                    <div class="arrow">
+                                        <select class="crs-select" ng-model="course.cityid"
+                                            ng-options="city.cityid as city.name for city in cities"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="crs-field-header">
+                                    <label>שנת תקציב</label>
+                                    <div class="arrow">
+                                        <select class="crs-select" ng-model="course.yearbudgetid"
+                                            ng-options="budgetyear.yearbudgetid as budgetyear.year for budgetyear in budgetyears"></select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="row crs-row">
+                            <div class="col-12">
+                                <div class="crs-field-header">מדריך</div>
+                                <div class="crs-field">{{course.primaryTeacherName}}</div>
+                            </div>
+                        </div>
+                    </form>
                 </uib-tab>
 
                 <uib-tab index="1" heading="סילבוס">
-                    <div class="row crs-row crs-top-row">
-                        <div ng-repeat="subject in course.subjects">
-                            <div ng-repeat="subject in course.subjects">
-
+                    <div class="crs-top-row">
+                        <div class="crs-syl-1" ng-repeat="subject in course.subjects">
+                            {{subject.subject}}
+                            <div class="underline1"></div>
+                            <div class="crs-syl-2" ng-repeat="subject in subject.subsubjects">
+                                {{subject.subject}}
+                                <div class="underline2"></div>
+                                <div class="crs-syl-3" ng-repeat="subject in subject.subsubjects">
+                                    {{subject.subject}}
+                                    <div class="underline3"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="row crs-fixed-tabs d-flex align-items-center">
-                        <div class="col-4 course-tabs
-                                            align-middle" ng-class="{active:courseStatus==1}">
-                            <a ng-click="goToActiveTab();">הוסף
-                                נושא</a>
+                        <div class="col-4 course-tabs align-middle">
+                            <a ng-click="addSubject(course.subjects)">הוסף נושא</a>
                         </div>
-                        <div class="col-4 course-tabs
-                                            align-middle" ng-class="{active:courseStatus==0}">
-                            <a ng-click="goToInactiveTab();">העלה
-                                סילבוס</a>
+                        <div class="col-4 course-tabs align-middle">
+                            <a ng-click="goToInactiveTab()">העלה סילבוס</a>
                         </div>
-                        <div class="col-4 course-tabs" ng-class="{active:courseStatus==0}">
-                            <a ng-click="goToInactiveTab();">ריקון
-                                סילבוס</a>
+                        <div class="col-4 course-tabs">
+                            <a ng-click="emptySyllabus()">ריקון סילבוס</a>
                         </div>
                     </div>
                 </uib-tab>

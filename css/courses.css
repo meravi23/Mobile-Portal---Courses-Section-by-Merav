@@ -1,37 +1,11 @@
+
+.crs-container {
+    box-shadow: 0px 6px 3px -5px rgba(26, 0, 0, 0.5);
+}
+
 .courses {
     position: relative;
     z-index: 0;
-}
-
-.input-wrap {
-    width: 80vw;
-    margin: auto;
-    background-color: #26bcbcbc;
-    height: 12vw;
-    border-radius: 94px;
-    padding: 3%;
-    box-sizing: border-box;
-    margin-bottom: 5%;
-    direction: ltr;
-}
-
-.input-wrap input {
-    height: 100%;
-    width: 59vw;
-    background-color: transparent;
-    border: none;
-    font-size: 5vw;
-    color: white;
-    vertical-align: top;
-    margin-right: 14vw;
-    box-sizing: border-box;
-    font-family: 'Assistant', sans-serif;
-    padding: 0;
-    text-align: right;
-}
-
-.input-wrap input::placeholder {
-    color: white
 }
 
 section .section-title {
@@ -50,7 +24,6 @@ form.tab-form-demo .tab-pane {
 
 
 /**********************************/
-
 
 #tabs {
     color: #eee;
@@ -130,10 +103,6 @@ form.tab-form-demo .tab-pane {
     padding-right: 10px;
 }
 
-.crs-tabs {
- 
-}
-
 .th-courses {
     width: 33%;
     overflow: hidden;
@@ -144,7 +113,7 @@ form.tab-form-demo .tab-pane {
 
 .td-courses {
     text-align: center;
-    height: 90px;
+    height: 42px;
     font-family: "Assistant-Regular";
     width: 33%;
     overflow: hidden;
@@ -176,7 +145,6 @@ form.tab-form-demo .tab-pane {
     margin-top: 26px;
     /*== 50-24*/
     padding-right: 18px;
-    box-shadow: 0px 6px 3px -5px rgba(26, 0, 0, 0.5);
 }
 
 .sub-header-row {
@@ -199,6 +167,7 @@ form.tab-form-demo .tab-pane {
 .sub-header-back {
     height: 16.1px;
     width: 22.4px;
+    margin-right: 25px;
     margin-left: 20px;
     margin-bottom: 112.2px;
 }
@@ -215,12 +184,42 @@ form.tab-form-demo .tab-pane {
     width: 19.5px;
     margin-left: 14px;
     margin-bottom: 108.2px;
+    margin-top: 4px;
 }
 
 .courses-full-name {
     height: 34px;
-    margin-right: 18px;
+    padding-right: 18px;
     margin-bottom: 21px;
+}
+
+.underline1, .underline2, .underline3 {
+    margin-right: -33px;
+    border-bottom: 1px solid;
+}
+
+.underline1 {
+    margin-right: -65px;
+}
+
+.crs-syl-1, .crs-syl-2, .crs-syl-3 {
+    color: #5d5d5d;
+    font-size: 12px;
+    margin-top: 11.7px;
+    padding-right: 33px;
+}
+
+.crs-syl-1:last-child {
+    margin-bottom: 76px;
+}
+
+
+.crs-syl-2 {
+    padding-right: 33px;
+}
+
+.crs-syl-3 {
+    padding-right: 40px;
 }
 
 .full-name {
@@ -243,7 +242,7 @@ form.tab-form-demo .tab-pane {
 }
 
 .crs-field-header,
-.crs-field {
+.crs-field, .selected-value {
     font-size: 12px;
     line-height: 15px;
     color: #5d5d5d;
@@ -253,7 +252,7 @@ form.tab-form-demo .tab-pane {
     font-family: "Assistant-SemiBold";
 }
 
-.crs-field {
+.crs-field, .selected-value {
     font-family: "Assistant-Light";
     margin-top: 8px;
 }
@@ -267,46 +266,76 @@ form.tab-form-demo .tab-pane {
     filter: alpha(opacity=50);
 }
 
+.input-wrap {
+    width: 80vw;
+    margin: auto;
+    background-color: #26bcbcbc;
+    height: 12vw;
+    border-radius: 94px;
+    padding: 3%;
+    box-sizing: border-box;
+    margin-bottom: 5%;
+    direction: ltr;
+}
 
-/*************dropdown down-arrow*************/
-
-
-/* TODO: fix arrow not showing */
-
-.crs-select {
-    display: block;
+.input-wrap input {
+    height: 100%;
+    width: 59vw;
+    background-color: transparent;
     border: none;
-    background: url('img/arrow_down.png') no-repeat;
+    font-size: 5vw;
+    color: white;
+    vertical-align: top;
+    margin-right: 14vw;
+    box-sizing: border-box;
+    font-family: 'Assistant', sans-serif;
+    padding: 0;
+    text-align: right;
+}
+
+.input-wrap input::placeholder {
+    color: white
 }
 
 
-/* remove default arrow on ie10 and ie11 */
+/*************dropdown down-arrow*************/
 
+.arrow {
+    height: 17px;
+    width: 140px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 1em;
+}
 
-/* .crs-select::-ms-expand { 
-    display: none; 
-} */
+.arrow:after {
+    background: url('/img/arrow_down.png') no-repeat;
+    content: "";
+    padding: 12px 8px;
+    position: absolute; 
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    pointer-events: none;
+}
 
+.crs-select {
+    font-family: "Assistant-Light";
+    font-size: 12px;
+    line-height: 15px;
+    color: #5d5d5d;
+    height: 17px;
+    width: 100%;
+    border: none;
+    -webkit-appearance: none;
+  /* for webkit browsers */
+    -moz-appearance: none;
+  /* for firefox */
+    appearance: none;
+  /* for modern browsers */
+}
 
-/* target Internet Explorer 9 to undo the custom arrow */
-
-
-/* @media screen and (min-width:0\0) {
-    .crs-select {
-        background:none\9;
-        padding: 5px\9;
-    } 
-} */
-
-
-/* Firefox, Safari and Chrome */
-
-
-/* .crs-select {
-    -moz-appearance:none; 
-    -webkit-appearance:none; 
-    appearance:none;
-} */
-
-
-/********************************************/
+/* remove default caret for ie */
+.crs-select::-ms-expand {
+    display: none;
+  }

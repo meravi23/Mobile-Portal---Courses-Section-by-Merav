@@ -16,6 +16,7 @@
 .td-users {
     text-align: right; 
     font-family:"Assistant-Regular";
+    padding-right: 15px;
 }
 
 .tr-users {
@@ -44,4 +45,66 @@
 
 .input-wrap input.user-search {
     padding-right: 10px;
+}
+
+
+.input-wrap input {
+    height: 100%;
+    width: 59vw;
+    background-color: transparent;
+    border: none;
+    font-size: 5vw;
+    color: white;
+    vertical-align: top;
+    margin-right: 14vw;
+    box-sizing: border-box;
+    font-family: 'Assistant', sans-serif;
+    padding: 0;
+    text-align: right;
+}
+
+.users-fixed-tabs {
+    position: fixed;
+    width: 100%;
+    height: 76px;
+    bottom: 0;
+    z-index: 5;
+    margin: auto;
+    background-color: #eee;
+    box-shadow: 0 -5px 5px -5px #333;
+}
+
+.users-tabs {
+    border-left: 1px solid #bcbcbc;
+    height: 100%;
+    text-align: center;
+    padding: 27px 0;
+}
+
+.users {
+    position: relative;
+    z-index: 0;
+}
+
+.usrsactive {
+    font-weight: bold;
+}
+
+.users-icon-row {
+    margin-top: 16.7px;
+}
+
+.users-header {
+    font-size: 28px;
+    font-family: "Assistant-SemiBold";
+    /* max-width: 125px; */
+    line-height: 30px;
+    color: #5d5d5d;
+    margin-top: 8px;
+}
+
+.users-full-name {
+    height: 34px;
+    padding-right: 18px;
+    margin-bottom: 21px;
 }
