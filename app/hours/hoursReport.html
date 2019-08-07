@@ -1,5 +1,6 @@
-<div>
-    <div class="container hours-report">
+<!-- <div> -->
+    <!-- <div class="container hours-report"> -->
+    <div class="hours-report">
         <portal-navbar></portal-navbar>
         <hours-report-month-scroll></hours-report-month-scroll>
         <div class="hours-sum">
@@ -9,28 +10,50 @@
         <div class="hour-report-table">
             <table ng-if="reports.length>0" class="table-hour-report">
                 <thead class="thead-hour-report">
-                    <tr>
-                        <th class="row-actions"></th>
-                        <th style="width: 6em;" class="th-hour-report">תאריך</th>
-                        <th style="width: 7em;" class="th-hour-report">פרויקט</th>
-                        <th style="width: 11em;" class="th-hour-report">נושא פעילות</th>
-                        <th style="width: 9em;" class="th-hour-report">סה"כ שעות</th>
+                    <tr>                        
+                        <th class="th-hour-report th-hour-report-date">תאריך</th>
+                        <th class="th-hour-report th-hour-report-project">פרויקט</th>
+                        <th class="th-hour-report th-hour-report-activity">נושא פעילות</th>
+                        <th class="th-hour-report th-hour-report-total">סה"כ שעות</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-class="{'missing-report-subject': rep.missingreportsubject}" ng-repeat="rep in reports">
-                        <td class="row-actions">
-                            <div class="row-action" ng-click="DuplicateData(rep);">
-                                <!-- <img src="./img/duplicate.png"></img> -->
-                            </div>
-                            <div class="row-action" ng-click="Delete(rep);">
-                                <!-- <img src="./img/Xicon.png"></img> -->
-                            </div>
+                    <tr class="rep-container tr-hour-report" ng-class="{'rep-container-rejected': rep.approval==-1, 'rep-container-unapproved': rep.approval==0, 
+                    'rep-container-approved': rep.approval==1}" ng-repeat="rep in reports">
+                        <td class="wh-report-cell">
+                            <span>
+                                {{ rep.date }}
+                            </span>
+                        </td>
+                        <td class="wh-report-cell">
+                            <span>
+                                <!-- {{ rep.projectid }} -->
+                                {{ getReportersProjectNameById(reportingPerimeter, rep.projectid) }}
+                            </span>
+                        </td>
+                        <td class="wh-report-cell">
+                            <span>
+                                <!-- {{ rep.actionid }} -->
+                                {{ getReportersActionNameById(getReportersProjectActionsById(reportingPerimeter, rep.projectid), rep.actionid) }}
+
+                            </span>
+                        </td>
+                        <td class="wh-report-cell">
+                            <span ng-init="calculateHours(rep);">
+                                {{rep.hours}}
+                            </span>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <div class="wh-footer d-flex justify-content-center align-items-center">
+            <span class="fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x text-black"></i>
+                <i class="fas fa-plus fa-stack-1x text-white"></i>
+            </span>
+        </div>
     </div>
 
-</div>
+<!-- </div> -->
+
