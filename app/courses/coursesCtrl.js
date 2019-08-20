@@ -16,16 +16,26 @@ app.controller("coursesCtrl", function ($rootScope, $scope, server, $location) {
 		var page = $scope.pageIndex;
 
 		var data = { 'search': search, 'sorting': sorting, 'desc': desc, 'coursestatus': coursestatus, 'page': page };
-		console.log(data);
 		server.requestPhp(data, 'SearchCourses').then(function (data) {
 			$scope.courses = data.courses;
+			// remove certain courses with damaged data
+			for (let i=0; i<$scope.courses.length; i++) {
+				if ($scope.courses[i].courseid == "171"){
+					$scope.courses.splice(i, 1);
+				}
+				if ($scope.courses[i].courseid == "227"){
+					$scope.courses.splice(i, 1);
+				}
+			}
 			$scope.pageCount = parseInt(data.pages);
 			$scope.loading = false;
 			$scope.GetMyProfile();
 			$scope.GetUserExtendedProfile();
 		});
+
 	}
 	$scope.getCourses();
+
 
 	$scope.GetMyProfile = function () {
 		var data = {};
